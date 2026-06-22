@@ -1,0 +1,7 @@
+{
+  "mae": 3.98,
+  "mape": 0.0607,
+  "forecast_days": 90,
+  "training_days": 1431,
+  "estimated_daily_average": 68.4
+}

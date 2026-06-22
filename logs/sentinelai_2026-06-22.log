@@ -1,0 +1,13 @@
+2026-06-22 12:25:44.090 | ERROR    | app.core.database:get_db:31 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-06-22 12:25:50.692 | ERROR    | app.core.database:get_db:31 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-06-22 12:29:17.934 | ERROR    | app.core.database:get_db:31 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-06-22 12:29:23.452 | ERROR    | app.core.database:get_db:31 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-06-22 12:33:36.653 | ERROR    | app.core.database:get_db:31 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-06-22 12:33:42.452 | ERROR    | app.core.database:get_db:31 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-06-22 12:36:07.699 | ERROR    | app.core.database:get_db:31 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-06-22 12:36:14.043 | ERROR    | app.core.database:get_db:31 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-06-22 12:38:23.894 | ERROR    | app.core.database:get_db:31 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-06-22 12:38:29.460 | ERROR    | app.core.database:get_db:31 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-06-22 12:40:30.772 | ERROR    | app.core.database:get_db:31 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-06-22 12:40:36.340 | ERROR    | app.core.database:get_db:31 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-06-22 12:46:16.958 | ERROR    | app.core.database:get_db:38 - Database session error: [WinError 1225] The remote computer refused the network connection

@@ -1,0 +1,36 @@
+{
+  "auc_roc": 1.0,
+  "avg_precision_at_50_recall": 0.4047,
+  "fraud_detection_rate": 1.0,
+  "precision": 0.9434,
+  "f1_score": 0.9709,
+  "feature_importance": [
+    {
+      "feature": "amount",
+      "importance": 0.8828
+    },
+    {
+      "feature": "hour",
+      "importance": 0.1115
+    },
+    {
+      "feature": "transaction_type_enc",
+      "importance": 0.0036
+    },
+    {
+      "feature": "day_of_week",
+      "importance": 0.0021
+    },
+    {
+      "feature": "amount_log",
+      "importance": 0.0
+    },
+    {
+      "feature": "is_night",
+      "importance": 0.0
+    }
+  ],
+  "n_transactions": 5100,
+  "n_fraud": 100,
+  "fraud_pct": 1.96
+}

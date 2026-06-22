@@ -1,0 +1,141 @@
+2026-06-22 17:35:50.837 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:35:56.493 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:36:01.519 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:36:06.740 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:36:11.855 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:36:16.806 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:36:21.982 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:36:26.945 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:36:32.166 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:37:33.294 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:37:33.301 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:37:33.306 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:37:33.317 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:37:33.321 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:37:33.325 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:37:33.330 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:37:33.359 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:37:33.364 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:37:33.388 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:37:33.392 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:37:33.423 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:37:33.427 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:37:33.432 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:37:33.436 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:37:33.441 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:37:33.446 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:37:33.452 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:38:16.425 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:38:16.432 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:38:16.437 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:38:16.449 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:38:16.454 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:38:16.458 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:38:16.464 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:38:16.490 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:38:16.497 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:38:16.516 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:38:16.522 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:38:16.555 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:38:16.562 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:38:16.567 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:38:16.572 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:38:16.580 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:38:16.587 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:38:16.593 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:09.712 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:09.718 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:09.723 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:09.729 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:09.733 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:09.760 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:09.766 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:09.785 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:09.790 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:09.820 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:09.827 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:09.830 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:09.835 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:09.841 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:09.847 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:09.852 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:43.249 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:43.254 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:43.260 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:43.265 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:43.270 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:43.297 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:43.302 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:43.320 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:43.329 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:43.362 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:43.367 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:43.372 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:43.472 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:43.529 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:39:43.582 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:39:43.635 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:40:29.297 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:40:29.302 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:40:29.309 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:40:29.313 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:40:29.317 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:40:29.363 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:40:29.369 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:40:29.392 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:40:29.397 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:40:29.433 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:40:29.438 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:40:29.444 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:40:29.450 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:40:29.457 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:40:29.462 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:40:29.468 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:43:14.591 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:43:14.597 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:43:14.608 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:43:14.612 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:43:14.618 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:43:14.648 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:43:14.655 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:43:14.673 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:43:14.678 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:43:14.710 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:43:14.715 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:43:14.721 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:43:14.726 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:43:14.735 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 17:43:14.740 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 17:43:14.746 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:07:05.307 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:07:05.312 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:07:05.323 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:07:05.326 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:07:05.332 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:07:05.357 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:07:05.363 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:07:05.380 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:07:05.385 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:07:05.412 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:07:05.417 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:07:05.421 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:07:05.426 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:07:05.431 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:07:05.436 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:07:05.440 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:34:21.860 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:34:21.865 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:34:21.877 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:34:21.881 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:34:21.889 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:34:21.915 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:34:21.922 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:34:21.938 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:34:21.942 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:34:21.971 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:34:21.997 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:34:22.002 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:34:22.007 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:34:22.012 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI
+2026-06-22 18:34:22.016 | INFO     | app.main:lifespan:14 - Starting SentinelAI
+2026-06-22 18:34:22.022 | INFO     | app.main:lifespan:17 - Shutting down SentinelAI

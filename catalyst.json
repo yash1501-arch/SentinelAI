@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "targets": [
+      "generate-pdf",
+      "export-report",
+      "process-voice",
+      "sentinel_utils"
+    ],
+    "ignore": [
+      ".output",
+      "__pycache__",
+      "*.pyc"
+    ],
+    "source": "functions"
+  },
+  "client": {
+    "source": "client"
+  },
+  "apig": {
+    "enabled": true
+  }
+}
