@@ -55,7 +55,15 @@ class SQLAgent:
                 max_tokens=500,
             )
 
-            result = json.loads(response.choices[0].message.content.strip())
+            raw = response.choices[0].message.content.strip()
+            # Handle markdown-wrapped JSON (```json ... ```)
+            if raw.startswith("```"):
+                raw = raw.split("```")[1]
+                if raw.startswith("json"):
+                    raw = raw[4:]
+                raw = raw.strip()
+
+            result = json.loads(raw)
             sql_query = result.get("sql", "").strip()
             state["sql_query"] = sql_query
             state["reasoning_chain"].append(f"SQL Agent generated: {result.get('explanation', '')}")

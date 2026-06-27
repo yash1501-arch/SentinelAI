@@ -1,15 +1,39 @@
 from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel, EmailStr
+from typing import Optional
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from app.core.database import get_db
 from app.core.dependencies import get_current_user, require_role
 from app.core.config import settings
+from app.core.security import get_password_hash
 from app.models.user import User, Role, Permission
 from app.models.analytics import AuditLog
 from app.schemas.user import UserRead, RoleRead
 from app.schemas.analytics import AuditLogRead
 
 router = APIRouter()
+
+
+class CreateUserRequest(BaseModel):
+    email: str
+    username: str
+    full_name: str
+    password: str
+    role: str = "investigator"
+    department: Optional[str] = None
+    designation: Optional[str] = None
+    badge_number: Optional[str] = None
+    jurisdiction: Optional[str] = None
+
+
+class UpdateUserRequest(BaseModel):
+    full_name: Optional[str] = None
+    department: Optional[str] = None
+    designation: Optional[str] = None
+    jurisdiction: Optional[str] = None
+    role: Optional[str] = None
+    is_active: Optional[bool] = None
 
 
 @router.get("/users", response_model=list[UserRead])
@@ -48,6 +72,139 @@ async def deactivate_user(
         "is_active": user.is_active,
         "message": f"User {'deactivated' if not user.is_active else 'activated'} successfully",
     }
+
+
+@router.post("/users", response_model=UserRead)
+async def create_user(
+    request: CreateUserRequest,
+    current_user: User = Depends(require_role("admin")),
+    db: AsyncSession = Depends(get_db),
+):
+    """Create a new user (admin only)."""
+    # Check if user already exists
+    existing = await db.execute(
+        select(User).where((User.email == request.email) | (User.username == request.username))
+    )
+    if existing.scalar_one_or_none():
+        raise HTTPException(status_code=409, detail="User with this email or username already exists")
+
+    # Get role
+    role_result = await db.execute(select(Role).where(Role.name == request.role))
+    role = role_result.scalar_one_or_none()
+
+    new_user = User(
+        email=request.email,
+        username=request.username,
+        full_name=request.full_name,
+        hashed_password=get_password_hash(request.password),
+        department=request.department,
+        designation=request.designation,
+        badge_number=request.badge_number,
+        jurisdiction=request.jurisdiction,
+        is_active=True,
+    )
+    if role:
+        new_user.roles = [role]
+
+    db.add(new_user)
+    await db.commit()
+    await db.refresh(new_user)
+    return new_user
+
+
+@router.put("/users/{user_id}")
+async def update_user(
+    user_id: str,
+    request: UpdateUserRequest,
+    current_user: User = Depends(require_role("admin")),
+    db: AsyncSession = Depends(get_db),
+):
+    """Update user details (admin only)."""
+    from uuid import UUID
+    try:
+        uid = UUID(user_id)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid user ID format")
+
+    result = await db.execute(select(User).where(User.id == uid))
+    user = result.scalar_one_or_none()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    if request.full_name is not None:
+        user.full_name = request.full_name
+    if request.department is not None:
+        user.department = request.department
+    if request.designation is not None:
+        user.designation = request.designation
+    if request.jurisdiction is not None:
+        user.jurisdiction = request.jurisdiction
+    if request.is_active is not None:
+        user.is_active = request.is_active
+
+    if request.role:
+        role_result = await db.execute(select(Role).where(Role.name == request.role))
+        role = role_result.scalar_one_or_none()
+        if role:
+            user.roles = [role]
+
+    await db.commit()
+    return {"status": "success", "message": f"User {user_id} updated"}
+
+
+@router.delete("/users/{user_id}")
+async def delete_user(
+    user_id: str,
+    current_user: User = Depends(require_role("admin")),
+    db: AsyncSession = Depends(get_db),
+):
+    """Delete a user (admin only). Soft-delete by deactivation."""
+    from uuid import UUID
+    try:
+        uid = UUID(user_id)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid user ID format")
+
+    if str(current_user.id) == user_id:
+        raise HTTPException(status_code=400, detail="Cannot delete yourself")
+
+    result = await db.execute(select(User).where(User.id == uid))
+    user = result.scalar_one_or_none()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    user.is_active = False
+    await db.commit()
+    return {"status": "success", "message": f"User {user_id} deactivated"}
+
+
+@router.put("/users/{user_id}/role")
+async def assign_role(
+    user_id: str,
+    role_name: str,
+    current_user: User = Depends(require_role("admin")),
+    db: AsyncSession = Depends(get_db),
+):
+    """Assign a role to a user."""
+    from uuid import UUID
+    try:
+        uid = UUID(user_id)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid user ID format")
+
+    result = await db.execute(select(User).where(User.id == uid))
+    user = result.scalar_one_or_none()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    role_result = await db.execute(select(Role).where(Role.name == role_name))
+    role = role_result.scalar_one_or_none()
+    if not role:
+        raise HTTPException(status_code=404, detail=f"Role '{role_name}' not found")
+
+    user.roles = [role]
+    await db.commit()
+    return {"status": "success", "message": f"Assigned role '{role_name}' to user {user_id}"}
 
 
 @router.get("/roles", response_model=list[RoleRead])

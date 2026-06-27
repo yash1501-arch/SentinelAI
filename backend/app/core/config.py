@@ -18,7 +18,8 @@ class Settings(BaseSettings):
     CATALYST_REGION: str = "us_west"
 
 
-    # PostgreSQL (local dev fallback)
+    # PostgreSQL (direct URL takes precedence over individual fields)
+    POSTGRES_URL: Optional[str] = None
     POSTGRES_HOST: str = "localhost"
     POSTGRES_PORT: int = 5432
     POSTGRES_DB: str = "sentinelai"
@@ -58,6 +59,15 @@ class Settings(BaseSettings):
 
     @property
     def DATABASE_URL(self) -> str:
+        if self.POSTGRES_URL:
+            url = self.POSTGRES_URL
+            if url.startswith("postgres://"):
+                url = "postgresql+asyncpg://" + url[len("postgres://"):]
+            elif url.startswith("postgresql://"):
+                url = "postgresql+asyncpg://" + url[len("postgresql://"):]
+            # asyncpg uses ssl=require instead of sslmode=require
+            url = url.replace("sslmode=require", "ssl=require")
+            return url
         return (
             f"postgresql+asyncpg://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}"
             f"@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
@@ -65,6 +75,11 @@ class Settings(BaseSettings):
 
     @property
     def DATABASE_URL_SYNC(self) -> str:
+        if self.POSTGRES_URL:
+            url = self.POSTGRES_URL
+            if url.startswith("postgres://"):
+                url = "postgresql+psycopg2://" + url[len("postgres://"):]
+            return url
         return (
             f"postgresql+psycopg2://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}"
             f"@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
@@ -72,13 +87,19 @@ class Settings(BaseSettings):
 
     @property
     def QDRANT_URL(self) -> str:
-        return f"http://{self.QDRANT_HOST}:{self.QDRANT_PORT}"
+        host = self.QDRANT_HOST
+        if host.startswith("http://") or host.startswith("https://"):
+            return host
+        return f"http://{host}:{self.QDRANT_PORT}"
 
     @property
     def REDIS_URL(self) -> str:
+        host = self.REDIS_HOST
+        # Cloud Redis typically uses rediss:// (TLS)
+        scheme = "rediss" if "." in host and host != "localhost" else "redis"
         if self.REDIS_PASSWORD:
-            return f"redis://:{self.REDIS_PASSWORD}@{self.REDIS_HOST}:{self.REDIS_PORT}/{self.REDIS_DB}"
-        return f"redis://{self.REDIS_HOST}:{self.REDIS_PORT}/{self.REDIS_DB}"
+            return f"{scheme}://:{self.REDIS_PASSWORD}@{host}:{self.REDIS_PORT}/{self.REDIS_DB}"
+        return f"{scheme}://{host}:{self.REDIS_PORT}/{self.REDIS_DB}"
 
     @property
     def CORS_ORIGINS_LIST(self) -> List[str]:

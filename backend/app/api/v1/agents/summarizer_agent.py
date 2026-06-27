@@ -83,7 +83,15 @@ class SummarizerAgent:
                 max_tokens=1000,
             )
 
-            result = json.loads(response.choices[0].message.content.strip())
+            raw = response.choices[0].message.content.strip()
+            # Handle markdown-wrapped JSON
+            if raw.startswith("```"):
+                raw = raw.split("```")[1]
+                if raw.startswith("json"):
+                    raw = raw[4:]
+                raw = raw.strip()
+
+            result = json.loads(raw)
             state["response"] = result.get("response", "")
             state["sources"] = result.get("sources", [])
             state["confidence_score"] = float(result.get("confidence_score", 0.5))

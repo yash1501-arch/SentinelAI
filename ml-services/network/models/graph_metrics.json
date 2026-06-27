@@ -1,0 +1,65 @@
+{
+  "n_nodes": 100,
+  "n_edges": 95,
+  "n_gangs": 5,
+  "n_persons": 95,
+  "density": 0.0192,
+  "modularity": 0.7922,
+  "n_communities": 5,
+  "n_triangles": 0,
+  "n_bridges": 95,
+  "n_suspicious_patterns": 0,
+  "top_central_persons": [
+    {
+      "id": "P-64886",
+      "centrality": 0.0101,
+      "role": "foot soldier"
+    },
+    {
+      "id": "P-97498",
+      "centrality": 0.0101,
+      "role": "informant"
+    },
+    {
+      "id": "P-10769",
+      "centrality": 0.0101,
+      "role": "foot soldier"
+    },
+    {
+      "id": "P-93104",
+      "centrality": 0.0101,
+      "role": "foot soldier"
+    },
+    {
+      "id": "P-35658",
+      "centrality": 0.0101,
+      "role": "foot soldier"
+    },
+    {
+      "id": "P-12747",
+      "centrality": 0.0101,
+      "role": "foot soldier"
+    },
+    {
+      "id": "P-66886",
+      "centrality": 0.0101,
+      "role": "informant"
+    },
+    {
+      "id": "P-97313",
+      "centrality": 0.0101,
+      "role": "informant"
+    },
+    {
+      "id": "P-33483",
+      "centrality": 0.0101,
+      "role": "enforcer"
+    },
+    {
+      "id": "P-90077",
+      "centrality": 0.0101,
+      "role": "foot soldier"
+    }
+  ],
+  "suspicious_patterns_sampled": []
+}

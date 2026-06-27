@@ -43,21 +43,50 @@ class ProfilingAgent:
             offender_data = await self._get_offender_data(person_id)
 
             if offender_data:
-                response = await client.chat.completions.create(
-                    model=settings.OPENAI_MODEL,
-                    messages=[
-                        {"role": "system", "content": PROFILING_PROMPT.format(
-                            data=json.dumps(offender_data, indent=2)
-                        )},
-                    ],
-                    temperature=0.2,
-                    max_tokens=500,
-                )
-                result = json.loads(response.choices[0].message.content.strip())
-                state["profiling_result"] = result
-                state["reasoning_chain"].append(
-                    f"Profiling Agent: {result.get('archetype')} - Risk: {result.get('risk_level')} ({result.get('risk_score')})"
-                )
+                # Try ML model first
+                ml_result = await self._get_ml_profile(offender_data)
+
+                if ml_result and ml_result.get("status") == "success":
+                    # Use XGBoost + SHAP result
+                    result = {
+                        "archetype": ml_result.get("archetype", "Unknown"),
+                        "risk_level": self._score_to_level(ml_result.get("risk_score", 0.5)),
+                        "risk_score": ml_result.get("risk_score", 0.5),
+                        "recidivism_probability": ml_result.get("recidivism_probability", 0.5),
+                        "escalation_risk": ml_result.get("escalation_risk", "Medium"),
+                        "behavioral_patterns": self._extract_patterns(ml_result),
+                        "profile_summary": f"ML-assessed profile: {ml_result.get('archetype', 'Unknown')} archetype with risk score {ml_result.get('risk_score', 0):.2f}",
+                        "shap_explanation": ml_result.get("shap_explanation", {}),
+                        "model_used": "XGBoost + SHAP",
+                    }
+                    state["profiling_result"] = result
+                    state["reasoning_chain"].append(
+                        f"Profiling Agent (ML): {result['archetype']} - Risk: {result['risk_level']} ({result['risk_score']:.2f})"
+                    )
+                else:
+                    # Fallback to LLM-based profiling
+                    response = await client.chat.completions.create(
+                        model=settings.OPENAI_MODEL,
+                        messages=[
+                            {"role": "system", "content": PROFILING_PROMPT.format(
+                                data=json.dumps(offender_data, indent=2, default=str)
+                            )},
+                        ],
+                        temperature=0.2,
+                        max_tokens=500,
+                    )
+                    raw = response.choices[0].message.content.strip()
+                    if raw.startswith("```"):
+                        raw = raw.split("```")[1]
+                        if raw.startswith("json"):
+                            raw = raw[4:]
+                        raw = raw.strip()
+                    result = json.loads(raw)
+                    result["model_used"] = "LLM"
+                    state["profiling_result"] = result
+                    state["reasoning_chain"].append(
+                        f"Profiling Agent (LLM): {result.get('archetype')} - Risk: {result.get('risk_level')} ({result.get('risk_score')})"
+                    )
             else:
                 state["profiling_result"] = {"message": "Insufficient data for profiling"}
                 state["reasoning_chain"].append("Profiling Agent: insufficient data")
@@ -69,6 +98,57 @@ class ProfilingAgent:
 
         state["processing_time_ms"] = int((time.time() - start) * 1000)
         return state
+
+    async def _get_ml_profile(self, offender_data: dict) -> dict:
+        """Try to get prediction from trained XGBoost model."""
+        try:
+            from app.ml.profiling import predict_risk
+
+            # Map DB offender data to model features
+            features = {
+                "age": offender_data.get("age") or 30,
+                "prior_cases": offender_data.get("prior_cases") or 0,
+                "is_repeat_offender": 1 if offender_data.get("is_repeat_offender") else 0,
+                "education_score": self._education_to_score(offender_data.get("education_level")),
+                "employment_score": 1 if offender_data.get("occupation") else 0,
+                "is_male": 1 if str(offender_data.get("gender", "")).lower() in ("male", "m") else 0,
+                "substance_abuse": 0,
+                "gang_affiliation": 0,
+                "mental_health_issues": 0,
+                "weapon_use": 0,
+                "violence_score": min((offender_data.get("prior_cases") or 0) * 0.2, 1.0),
+            }
+
+            return await predict_risk(features)
+        except Exception:
+            return {}
+
+    def _education_to_score(self, edu: str) -> int:
+        if not edu:
+            return 2
+        edu_map = {"illiterate": 0, "primary": 1, "secondary": 2, "higher_secondary": 3, "graduate": 4, "post_graduate": 5}
+        return edu_map.get(edu.lower().replace(" ", "_"), 2)
+
+    def _score_to_level(self, score: float) -> str:
+        if score >= 0.8:
+            return "Critical"
+        if score >= 0.6:
+            return "High"
+        if score >= 0.4:
+            return "Medium"
+        return "Low"
+
+    def _extract_patterns(self, ml_result: dict) -> list:
+        patterns = []
+        shap = ml_result.get("shap_explanation", {})
+        # Top positive SHAP features indicate behavioral patterns
+        sorted_features = sorted(shap.items(), key=lambda x: abs(x[1]), reverse=True)[:5]
+        for feat, val in sorted_features:
+            if val > 0:
+                patterns.append(f"High {feat.replace('_', ' ')}")
+            else:
+                patterns.append(f"Low {feat.replace('_', ' ')}")
+        return patterns or ["Data-driven assessment"]
 
     async def _extract_person_id(self, query: str) -> str:
         return query

@@ -1,0 +1,139 @@
+2026-06-27 19:45:38.473 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-06-27 19:45:43.494 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-06-27 19:45:46.182 | INFO     | app.main:lifespan:26 - Qdrant collections initialized
+2026-06-27 19:45:46.183 | INFO     | app.services.neo4j_service:get_driver:16 - Neo4j driver initialized
+2026-06-27 19:45:46.184 | INFO     | app.main:lifespan:33 - Neo4j connection established
+2026-06-27 19:45:46.184 | WARNING  | app.services.redis_service:get_client:30 - redis package not installed, caching disabled
+2026-06-27 19:45:46.184 | INFO     | app.main:lifespan:41 - Redis connection established
+2026-06-27 19:46:15.618 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 19:46:15.729 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid refresh token
+2026-06-27 19:47:29.080 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User Narayan1501 (narayanp1501@gmail.com)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+2026-06-27 22:32:40.234 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 22:32:40.678 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation error for UserRead
+roles
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<User admin (admin@sentinelai.gov.in)>, input_type=User]
+    For further information visit https://errors.pydantic.dev/2.13/v/get_attribute_error
+2026-06-27 22:32:46.227 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 22:32:50.729 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 22:32:53.740 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 22:33:24.325 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 22:33:28.453 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 22:33:31.491 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 22:34:01.422 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 22:40:39.277 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-06-27 22:40:43.987 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-06-27 22:40:48.879 | INFO     | app.main:lifespan:26 - Qdrant collections initialized
+2026-06-27 22:40:48.880 | INFO     | app.services.neo4j_service:get_driver:16 - Neo4j driver initialized
+2026-06-27 22:40:48.880 | INFO     | app.main:lifespan:33 - Neo4j connection established
+2026-06-27 22:40:48.880 | WARNING  | app.services.redis_service:get_client:30 - redis package not installed, caching disabled
+2026-06-27 22:40:48.881 | INFO     | app.main:lifespan:41 - Redis connection established
+2026-06-27 22:41:00.769 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 22:41:12.836 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 22:41:16.037 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 22:41:19.018 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-06-27 23:29:38.294 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid or expired token
+2026-06-27 23:29:38.299 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid or expired token
+2026-06-27 23:29:39.269 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation error for UserRead
+roles
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<User admin (admin@sentinelai.gov.in)>, input_type=User]
+    For further information visit https://errors.pydantic.dev/2.13/v/get_attribute_error
+2026-06-27 23:29:39.320 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation error for UserRead
+roles
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<User admin (admin@sentinelai.gov.in)>, input_type=User]
+    For further information visit https://errors.pydantic.dev/2.13/v/get_attribute_error
+2026-06-27 23:30:51.753 | ERROR    | app.core.database:get_db:52 - Database session error: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 0, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User Narayan1501 (narayanp1501@gmail.com)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 1, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User analyst (analyst@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 2, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User investigator (investigator@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+2026-06-27 23:30:52.426 | ERROR    | app.core.database:get_db:52 - Database session error: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 0, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User Narayan1501 (narayanp1501@gmail.com)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 1, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User analyst (analyst@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 2, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User investigator (investigator@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+2026-06-27 23:31:11.616 | ERROR    | app.core.database:get_db:52 - Database session error: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 0, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User Narayan1501 (narayanp1501@gmail.com)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 1, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User analyst (analyst@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 2, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User investigator (investigator@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+2026-06-27 23:31:12.142 | ERROR    | app.core.database:get_db:52 - Database session error: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 0, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User Narayan1501 (narayanp1501@gmail.com)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 1, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User analyst (analyst@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 2, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User investigator (investigator@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+2026-06-27 23:32:17.058 | WARNING  | app.services.redis_service:get_client:30 - redis package not installed, caching disabled
+2026-06-27 23:32:17.538 | WARNING  | app.services.redis_service:get_client:30 - redis package not installed, caching disabled
+2026-06-27 23:32:17.540 | WARNING  | app.services.redis_service:get_client:30 - redis package not installed, caching disabled
+2026-06-27 23:32:20.170 | WARNING  | app.services.redis_service:get_client:30 - redis package not installed, caching disabled
+2026-06-27 23:32:20.170 | WARNING  | app.services.redis_service:get_client:30 - redis package not installed, caching disabled
+2026-06-27 23:32:38.115 | INFO     | app.services.neo4j_service:close:24 - Neo4j driver closed
+2026-06-27 23:32:38.137 | INFO     | app.main:lifespan:58 - Shutting down SentinelAI
+2026-06-27 23:32:45.916 | ERROR    | app.core.database:get_db:52 - Database session error: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 0, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User Narayan1501 (narayanp1501@gmail.com)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 1, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User analyst (analyst@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 2, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User investigator (investigator@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+2026-06-27 23:32:46.385 | ERROR    | app.core.database:get_db:52 - Database session error: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 0, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User Narayan1501 (narayanp1501@gmail.com)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 1, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User analyst (analyst@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 2, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User investigator (investigator@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+2026-06-27 23:32:49.437 | ERROR    | app.core.database:get_db:52 - Database session error: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 0, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User Narayan1501 (narayanp1501@gmail.com)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 1, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User analyst (analyst@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 2, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User investigator (investigator@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+2026-06-27 23:32:50.121 | ERROR    | app.core.database:get_db:52 - Database session error: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 0, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User Narayan1501 (narayanp1501@gmail.com)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 1, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User analyst (analyst@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 2, 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User investigator (investigator@sentinelai.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+2026-06-27 23:33:16.718 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-06-27 23:33:21.432 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-06-27 23:33:25.655 | INFO     | app.main:lifespan:26 - Qdrant collections initialized
+2026-06-27 23:33:25.691 | INFO     | app.services.neo4j_service:get_driver:16 - Neo4j driver initialized
+2026-06-27 23:33:25.691 | INFO     | app.main:lifespan:33 - Neo4j connection established
+2026-06-27 23:33:25.692 | WARNING  | app.services.redis_service:get_client:30 - redis package not installed, caching disabled
+2026-06-27 23:33:25.789 | INFO     | app.main:lifespan:41 - Redis connection established
+2026-06-27 23:35:28.062 | INFO     | app.services.neo4j_service:close:24 - Neo4j driver closed
+2026-06-27 23:35:28.063 | INFO     | app.main:lifespan:58 - Shutting down SentinelAI
+2026-06-27 23:35:57.947 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-06-27 23:36:02.275 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-06-27 23:36:06.143 | INFO     | app.main:lifespan:26 - Qdrant collections initialized
+2026-06-27 23:36:06.143 | INFO     | app.services.neo4j_service:get_driver:16 - Neo4j driver initialized
+2026-06-27 23:36:06.144 | INFO     | app.main:lifespan:33 - Neo4j connection established
+2026-06-27 23:36:06.144 | WARNING  | app.services.redis_service:get_client:30 - redis package not installed, caching disabled
+2026-06-27 23:36:06.144 | INFO     | app.main:lifespan:41 - Redis connection established
+2026-06-28 00:10:36.781 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid or expired token
+2026-06-28 00:10:36.789 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid or expired token
+2026-06-28 00:10:36.796 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid or expired token
+2026-06-28 00:10:36.800 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid or expired token
+2026-06-28 00:10:36.805 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid or expired token
+2026-06-28 00:10:36.813 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid or expired token
+2026-06-28 00:10:37.202 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation error for UserRead
+roles
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<User analyst (analyst@sentinelai.gov.in)>, input_type=User]
+    For further information visit https://errors.pydantic.dev/2.13/v/get_attribute_error
+2026-06-28 00:10:37.434 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation error for UserRead
+roles
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<User analyst (analyst@sentinelai.gov.in)>, input_type=User]
+    For further information visit https://errors.pydantic.dev/2.13/v/get_attribute_error
+2026-06-28 00:10:37.436 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation error for UserRead
+roles
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<User analyst (analyst@sentinelai.gov.in)>, input_type=User]
+    For further information visit https://errors.pydantic.dev/2.13/v/get_attribute_error
+2026-06-28 00:10:37.438 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation error for UserRead
+roles
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<User analyst (analyst@sentinelai.gov.in)>, input_type=User]
+    For further information visit https://errors.pydantic.dev/2.13/v/get_attribute_error
+2026-06-28 00:10:37.973 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation error for UserRead
+roles
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<User analyst (analyst@sentinelai.gov.in)>, input_type=User]
+    For further information visit https://errors.pydantic.dev/2.13/v/get_attribute_error
+2026-06-28 00:10:37.996 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation error for UserRead
+roles
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<User analyst (analyst@sentinelai.gov.in)>, input_type=User]
+    For further information visit https://errors.pydantic.dev/2.13/v/get_attribute_error
+2026-06-28 00:14:05.591 | ERROR    | app.core.database:get_db:52 - Database session error: 404: Case not found

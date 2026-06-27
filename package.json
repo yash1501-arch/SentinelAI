@@ -12,13 +12,14 @@
     "@prisma/adapter-pg": "7.0.0",
     "@prisma/client": "7.0.0",
     "next": "15.3.8",
+    "pg": "8.20.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "pg": "8.20.0"
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.5",
     "@types/node": "22.19.0",
+    "@types/pg": "8.20.0",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "dotenv": "17.3.1",
@@ -28,7 +29,6 @@
     "prisma": "7.0.0",
     "tailwindcss": "3.4.17",
     "tsx": "4.20.6",
-    "typescript": "5.8.2",
-    "@types/pg": "8.20.0"
+    "typescript": "5.8.2"
   }
 }

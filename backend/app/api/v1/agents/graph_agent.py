@@ -55,7 +55,15 @@ class GraphAgent:
                 max_tokens=500,
             )
 
-            result = json.loads(response.choices[0].message.content.strip())
+            raw = response.choices[0].message.content.strip()
+            # Handle markdown-wrapped JSON
+            if raw.startswith("```"):
+                raw = raw.split("```")[1]
+                if raw.startswith("json"):
+                    raw = raw[4:]
+                raw = raw.strip()
+
+            result = json.loads(raw)
             cypher = result.get("cypher", "").strip()
             params = result.get("params", {})
             state["cypher_query"] = cypher

@@ -10,6 +10,8 @@ from app.models.analytics import ConversationHistory, ConversationRole
 from app.schemas.analytics import ConversationRequest, ConversationResponse, ConversationHistoryRead
 from app.llm.graph import agent_graph
 from app.llm.state import AgentState
+from app.services.redis_service import RedisService
+from app.services.translation_service import TranslationService
 from loguru import logger
 
 router = APIRouter()
@@ -28,16 +30,25 @@ async def converse(
     await _save_message(db, current_user.id, request.session_id,
                         ConversationRole.USER, request.message, request.language)
 
+    # Translate non-English queries to English for agent processing
+    query_for_agents = request.message
+    user_language = request.language or "en"
+    if user_language != "en":
+        detected = await TranslationService.detect_language(request.message)
+        if detected != "en":
+            user_language = detected
+        query_for_agents = await TranslationService.translate_to_english(request.message, user_language)
+
     user_role = "investigator"
     if current_user.roles:
         user_role = current_user.roles[0].name if current_user.roles else "investigator"
 
     initial_state: AgentState = {
-        "query": request.message,
+        "query": query_for_agents,
         "session_id": request.session_id,
         "user_id": str(current_user.id),
         "user_role": user_role,
-        "language": request.language or "en",
+        "language": user_language,
         "context": context,
         "intent": None,
         "intent_confidence": 0.0,
@@ -71,17 +82,23 @@ async def converse(
         logger.error(f"Agent orchestration failed: {e}")
         raise HTTPException(status_code=500, detail=f"Agent processing failed: {str(e)}")
 
+    # Translate response back to user's language if needed
+    response_text = final_state.get("response", "I could not process that request.")
+    if user_language != "en" and response_text:
+        response_text = await TranslationService.translate_from_english(response_text, user_language)
+        final_state["reasoning_chain"].append(f"Translated response to {user_language}")
+
     processing_ms = int((time.time() - start_time) * 1000)
 
     await _save_message(db, current_user.id, request.session_id,
-                        ConversationRole.ASSISTANT, final_state.get("response", "I could not process that request."),
+                        ConversationRole.ASSISTANT, response_text,
                         request.language)
 
     visualizations = _build_visualizations(final_state)
 
     return ConversationResponse(
         session_id=request.session_id,
-        reply=final_state.get("response", "No response generated."),
+        reply=response_text,
         language=request.language or "en",
         sources=final_state.get("sources", []),
         confidence_score=final_state.get("confidence_score", 0.5),
@@ -125,6 +142,11 @@ async def clear_history(
 
 
 async def _get_recent_context(db: AsyncSession, user_id: uuid.UUID, session_id: str, limit: int = 5) -> list:
+    # Try Redis cache first
+    cached = await RedisService.get_conversation_context(session_id)
+    if cached:
+        return cached[-limit:]
+
     result = await db.execute(
         select(ConversationHistory)
         .where(
@@ -135,11 +157,17 @@ async def _get_recent_context(db: AsyncSession, user_id: uuid.UUID, session_id: 
         .limit(limit)
     )
     messages = result.scalars().all()
-    return [
+    context = [
         {"role": msg.role.value if hasattr(msg.role, 'value') else str(msg.role),
          "content": msg.content}
         for msg in reversed(messages)
     ]
+
+    # Cache for next time
+    if context:
+        await RedisService.cache_conversation_context(session_id, context)
+
+    return context
 
 
 async def _save_message(db: AsyncSession, user_id: uuid.UUID, session_id: str,
@@ -153,6 +181,12 @@ async def _save_message(db: AsyncSession, user_id: uuid.UUID, session_id: str,
     )
     db.add(msg)
     await db.commit()
+
+    # Update Redis cache with new message
+    new_entry = {"role": role.value if hasattr(role, 'value') else str(role), "content": content}
+    cached = await RedisService.get_conversation_context(session_id) or []
+    cached.append(new_entry)
+    await RedisService.cache_conversation_context(session_id, cached[-10:])
 
 
 def _build_visualizations(state: AgentState) -> list:

@@ -1,0 +1,50 @@
+2026-06-26 14:23:08.648 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-06-26 14:23:42.882 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-06-26 14:27:20.793 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-06-26 14:27:26.798 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-06-26 14:27:29.132 | INFO     | app.services.qdrant_service:initialize_collections:47 - Created Qdrant collection: crime_descriptions
+2026-06-26 14:27:29.686 | INFO     | app.services.qdrant_service:initialize_collections:47 - Created Qdrant collection: fir_text
+2026-06-26 14:27:30.237 | INFO     | app.services.qdrant_service:initialize_collections:47 - Created Qdrant collection: case_notes
+2026-06-26 14:27:30.802 | INFO     | app.services.qdrant_service:initialize_collections:47 - Created Qdrant collection: witness_statements
+2026-06-26 14:27:31.364 | INFO     | app.services.qdrant_service:initialize_collections:47 - Created Qdrant collection: evidence_descriptions
+2026-06-26 14:27:31.364 | INFO     | app.main:lifespan:26 - Qdrant collections initialized
+2026-06-26 14:27:31.365 | INFO     | app.services.neo4j_service:get_driver:16 - Neo4j driver initialized
+2026-06-26 14:27:31.365 | INFO     | app.main:lifespan:33 - Neo4j connection established
+2026-06-26 14:29:00.576 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation error for UserRead
+roles
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<User admin (admin@sentinelai.gov.in)>, input_type=User]
+    For further information visit https://errors.pydantic.dev/2.13/v/get_attribute_error
+2026-06-26 14:35:47.095 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation error for UserRead
+roles
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<User admin (admin@sentinelai.gov.in)>, input_type=User]
+    For further information visit https://errors.pydantic.dev/2.13/v/get_attribute_error
+2026-06-26 14:37:23.698 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-06-26 14:37:31.210 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-06-26 14:37:34.138 | INFO     | app.main:lifespan:26 - Qdrant collections initialized
+2026-06-26 14:37:34.141 | INFO     | app.services.neo4j_service:get_driver:16 - Neo4j driver initialized
+2026-06-26 14:37:34.141 | INFO     | app.main:lifespan:33 - Neo4j connection established
+2026-06-26 14:41:24.266 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-06-26 14:41:54.588 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-06-26 14:41:57.937 | INFO     | app.main:lifespan:26 - Qdrant collections initialized
+2026-06-26 14:41:57.938 | INFO     | app.services.neo4j_service:get_driver:16 - Neo4j driver initialized
+2026-06-26 14:41:57.938 | INFO     | app.main:lifespan:33 - Neo4j connection established
+2026-06-26 14:45:20.656 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-06-26 14:45:27.030 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-06-26 14:45:30.138 | INFO     | app.main:lifespan:26 - Qdrant collections initialized
+2026-06-26 14:45:30.139 | INFO     | app.services.neo4j_service:get_driver:16 - Neo4j driver initialized
+2026-06-26 14:45:30.139 | INFO     | app.main:lifespan:33 - Neo4j connection established
+2026-06-26 15:23:04.769 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-06-26 15:23:10.747 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-06-26 15:23:14.489 | INFO     | app.main:lifespan:26 - Qdrant collections initialized
+2026-06-26 15:23:14.490 | INFO     | app.services.neo4j_service:get_driver:16 - Neo4j driver initialized
+2026-06-26 15:23:14.490 | INFO     | app.main:lifespan:33 - Neo4j connection established
+2026-06-26 15:35:44.803 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-06-26 15:35:52.421 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-06-26 15:35:55.181 | INFO     | app.main:lifespan:26 - Qdrant collections initialized
+2026-06-26 15:35:55.182 | INFO     | app.services.neo4j_service:get_driver:16 - Neo4j driver initialized
+2026-06-26 15:35:55.182 | INFO     | app.main:lifespan:33 - Neo4j connection established
+2026-06-26 15:58:59.155 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-06-26 15:59:07.562 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-06-26 15:59:11.973 | INFO     | app.main:lifespan:26 - Qdrant collections initialized
+2026-06-26 15:59:11.974 | INFO     | app.services.neo4j_service:get_driver:16 - Neo4j driver initialized
+2026-06-26 15:59:11.974 | INFO     | app.main:lifespan:33 - Neo4j connection established

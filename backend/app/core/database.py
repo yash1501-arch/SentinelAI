@@ -1,15 +1,29 @@
+import ssl as ssl_module
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
 from app.core.config import settings
 from loguru import logger
 
 
+# Configure SSL for cloud PostgreSQL
+connect_args = {}
+db_url = settings.DATABASE_URL
+if "ssl=require" in db_url or "sslmode=require" in db_url:
+    ssl_context = ssl_module.create_default_context()
+    ssl_context.check_hostname = False
+    ssl_context.verify_mode = ssl_module.CERT_NONE
+    connect_args["ssl"] = ssl_context
+    # Remove ssl param from URL since we pass it via connect_args
+    db_url = db_url.replace("?ssl=require", "").replace("&ssl=require", "")
+    db_url = db_url.replace("?sslmode=require", "").replace("&sslmode=require", "")
+
 engine = create_async_engine(
-    settings.DATABASE_URL,
-    echo=settings.DEBUG,
+    db_url,
+    echo=False,  # Disable SQL logging for performance (use DEBUG for development only)
     pool_size=20,
     max_overflow=10,
     pool_pre_ping=True,
+    connect_args=connect_args,
 )
 
 async_session_factory = async_sessionmaker(

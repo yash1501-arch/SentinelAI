@@ -46,8 +46,9 @@ async def register(user_data: UserCreate, db: AsyncSession = Depends(get_db)):
 
 @router.post("/login", response_model=TokenResponse)
 async def login(credentials: UserLogin, db: AsyncSession = Depends(get_db)):
+    from sqlalchemy.orm import selectinload
     result = await db.execute(
-        select(User).where(User.username == credentials.username)
+        select(User).options(selectinload(User.roles)).where(User.username == credentials.username)
     )
     user = result.scalar_one_or_none()
 
@@ -59,16 +60,20 @@ async def login(credentials: UserLogin, db: AsyncSession = Depends(get_db)):
 
     user.last_login = None
     await db.commit()
+    await db.refresh(user, attribute_names=["roles"])
 
     token_data = {"sub": str(user.id), "username": user.username}
     access_token = create_access_token(token_data)
     refresh_token = create_refresh_token(token_data)
 
+    # Build response while session is still active
+    user_read = UserRead.model_validate(user)
+
     return TokenResponse(
         access_token=access_token,
         refresh_token=refresh_token,
         expires_in=30,
-        user=UserRead.model_validate(user),
+        user=user_read,
     )
 
 

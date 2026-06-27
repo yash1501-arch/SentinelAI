@@ -1,289 +1,155 @@
-# Fullstack Next.js Example with Prisma Postgres
+# SentinelAI
 
-This example shows how to implement a fullstack app using [Next.js 15](https://nextjs.org/) with App Router, Prisma ORM and a [Prisma Postgres](https://www.prisma.io/postgres) database.
+**Connecting Crimes, Predicting Threats, Empowering Investigations**
 
-## Getting started
+SentinelAI is an AI-powered crime intelligence platform that enables law enforcement personnel to query, analyze, and predict crime patterns through natural language. It combines a multi-agent LLM system with graph databases, vector search, and predictive ML to provide actionable intelligence in seconds.
 
-### 1. Download example and navigate into the project directory
+## Key Features
 
-Download this example:
+- **Conversational AI** — Natural language queries processed by 7 specialized agents
+- **Crime Network Analysis** — Interactive graph visualization of criminal connections (Neo4j)
+- **Predictive Forecasting** — Crime volume and hotspot predictions (Prophet, XGBoost)
+- **Semantic Case Matching** — Find similar cases via vector embeddings (Qdrant)
+- **Offender Profiling** — Risk scoring with behavioral pattern analysis and SHAP explainability
+- **Crime Hotspot Mapping** — Geospatial visualization of crime density (Mapbox)
+- **Smart Alerts** — AI-generated alerts from forecasts, patterns, and anomalies
+- **Voice Input** — Speak queries using OpenAI Whisper transcription
+- **Multi-language** — Supports English and Kannada
+- **PDF/CSV Export** — Generate investigation reports on demand
 
-```
-npx try-prisma@latest --template orm/nextjs --install npm --name nextjs
-```
-
-Then, navigate into the project directory:
-
-```
-cd nextjs
-```
-
-<details><summary><strong>Alternative:</strong> Clone the entire repo</summary>
-
-Clone this repository:
+## Architecture
 
 ```
-git clone git@github.com:prisma/prisma-examples.git --depth=1
+┌──────────────────────────────────────────────────────────────┐
+│                        Frontend (Next.js 15)                   │
+│  Dashboard │ Chat │ Cases │ Map │ Network │ Forecasting │ ...│
+└──────────────────────────┬───────────────────────────────────┘
+                           │ REST API
+┌──────────────────────────▼───────────────────────────────────┐
+│                   Backend (FastAPI + Python)                    │
+│                                                                │
+│  ┌─────────────────────────────────────────────────────────┐  │
+│  │              LangGraph Multi-Agent Orchestrator           │  │
+│  │                                                           │  │
+│  │  Coordinator → [SQL│Graph│RAG│Analytics│Profile│Forecast] │  │
+│  │                          ↓                                │  │
+│  │                     Summarizer                            │  │
+│  └─────────────────────────────────────────────────────────┘  │
+│                                                                │
+│  ┌────────────┐  ┌──────────┐  ┌──────────┐  ┌───────────┐  │
+│  │ PostgreSQL │  │  Neo4j   │  │  Qdrant  │  │   Redis   │  │
+│  │  (Cases)   │  │ (Graphs) │  │  (RAG)   │  │  (Cache)  │  │
+│  └────────────┘  └──────────┘  └──────────┘  └───────────┘  │
+└──────────────────────────────────────────────────────────────┘
 ```
 
-Install npm dependencies:
+## The 7-Agent System
 
+| Agent | Purpose | Data Source |
+|-------|---------|-------------|
+| Coordinator | Intent classification & routing | OpenAI GPT-4 |
+| SQL Agent | Structured data queries | PostgreSQL |
+| Graph Agent | Relationship/network analysis | Neo4j (Cypher) |
+| RAG Agent | Semantic document search | Qdrant (Vector) |
+| Analytics Agent | Trends, hotspots, patterns | PostgreSQL |
+| Profiling Agent | Offender risk assessment | XGBoost + SHAP |
+| Forecast Agent | Crime prediction | Prophet + XGBoost |
+| Summarizer | Response synthesis | OpenAI GPT-4 |
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Next.js 15, React 19, TypeScript, Tailwind CSS, shadcn/ui |
+| Charts | Recharts |
+| Maps | Mapbox GL |
+| Graphs | React Flow (@xyflow/react) |
+| Backend | FastAPI, Python 3.13, SQLAlchemy (async) |
+| AI/LLM | LangGraph, OpenAI GPT-4, LangChain |
+| Embeddings | Sentence Transformers (all-MiniLM-L6-v2) |
+| ML | scikit-learn, XGBoost, Prophet, HDBSCAN, SHAP |
+| Primary DB | PostgreSQL |
+| Graph DB | Neo4j |
+| Vector DB | Qdrant |
+| Cache | Redis |
+| Voice | OpenAI Whisper |
+| Auth | JWT (python-jose + passlib) |
+| CI/CD | GitHub Actions, Docker |
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.13+
+- Node.js 20+
+- PostgreSQL 15+
+- Redis (optional, for caching)
+- OpenAI API key
+
+### Backend
+
+```bash
+cd backend
+pip install -r requirements.txt
+
+# Configure environment
+cp .env.example .env
+# Edit .env with your database URL and OpenAI key
+
+# Run server (auto-creates tables and seeds demo data)
+uvicorn app.main:app --reload --port 8000
 ```
-cd prisma-examples/orm/nextjs
+
+### Frontend
+
+```bash
+cd frontend
 npm install
-```
-
-</details>
-
-### 2. Create and seed the database
-
-Create a new [Prisma Postgres](https://www.prisma.io/docs/postgres/overview) database by executing:
-
-```terminal
-npx prisma init --db
-```
-
-If you don't have a [Prisma Data Platform](https://console.prisma.io/) account yet, or if you are not logged in, the command will prompt you to log in using one of the available authentication providers. A browser window will open so you can log in or create an account. Return to the CLI after you have completed this step.
-
-Once logged in (or if you were already logged in), the CLI will prompt you to:
-1. Select a **region** (e.g. `us-east-1`)
-1. Enter a **project name**
-
-After successful creation, you will see output similar to the following:
-
-<details>
-
-<summary>CLI output</summary>
-
-```terminal
-Let's set up your Prisma Postgres database!
-? Select your region: ap-northeast-1 - Asia Pacific (Tokyo)
-? Enter a project name: testing-migration
-✔ Success! Your Prisma Postgres database is ready ✅
-
-We found an existing schema.prisma file in your current project directory.
-
---- Database URL ---
-
-Connect Prisma ORM to your Prisma Postgres database with the provided URL and add it to your `.env` as `DATABASE_URL`.
-
---- Next steps ---
-
-Go to https://pris.ly/ppg-init for detailed instructions.
-
-1. Install the `@prisma/adapter-pg` driver adapter and configure your Prisma Client instance
-```bash
-npm install @prisma/adapter-pg
-```
-```ts
-import { PrismaPg } from '@prisma/adapter-pg'
-const pool = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
-const prisma = new PrismaClient({ adapter: pool })
-```
-
-2. Apply migrations
-Run the following command to create and apply a migration:
-npx prisma migrate dev
-
-3. Manage your data
-View and edit your data locally by running this command:
-npx prisma studio
-
-...or online in Console:
-https://console.prisma.io/{workspaceId}/{projectId}/studio
-
-4. Send queries from your app
-If you already have an existing app with Prisma ORM, you can now run it and it will send queries against your newly created Prisma Postgres instance.
-
-5. Learn more
-For more info, visit the Prisma Postgres docs: https://pris.ly/ppg-docs
-```
-
-</details>
-
-Locate and copy the database URL provided in the CLI output. Then, create a `.env` file in the project root:
-
-```bash
-touch .env
-```
-
-Now, paste the URL into it as a value for the `DATABASE_URL` environment variable. For example:
-
-```bash
-# .env
-DATABASE_URL=postgres://<username>:<password>@<host>:<port>/<database>
-```
-
-Run the following command to create tables in your database. This creates the `User` and `Post` tables that are defined in [`prisma/schema.prisma`](./prisma/schema.prisma):
-
-```terminal
-npx prisma migrate dev --name init
-```
-
-Execute the seed file in [`prisma/seed.ts`](./prisma/seed.ts) to populate your database with some sample data, by running:
-
-```terminal
-npx prisma db seed
-```
-
-### 3. Start the Next.js server
-
-```
 npm run dev
 ```
 
-The server is now running on `http://localhost:3000`. You can now view all different pages:
+Open http://localhost:3000
 
-- Home: [`http://localhost:3000/`](http://localhost:3000/)
-- All posts: [`http://localhost:3000/posts`](http://localhost:3000/posts)
-- New post: [`http://localhost:3000/posts/new`](http://localhost:3000/posts/new)
-- Post details: [`http://localhost:3000/posts/1`](http://localhost:3000/posts/1)
+### Demo Credentials
 
-## Evolving the app
+| Role | Username | Password |
+|------|----------|----------|
+| Admin | admin | Admin@123 |
+| Investigator | investigator | Investigator@123 |
+| Analyst | analyst | Analyst@123 |
 
-Evolving the application typically requires two steps:
+## API Documentation
 
-1. Migrate your database using Prisma Migrate
-1. Update your application code
+With the backend running, visit:
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
 
-For the following example scenario, assume you want to add a "profile" feature to the app where users can create a profile and write a short bio about themselves.
-
-### 1. Migrate your database using Prisma Migrate
-
-The first step is to add a new table, e.g. called `Profile`, to the database. You can do this by adding a new model to your [Prisma schema file](./prisma/schema.prisma) file and then running a migration afterwards:
-
-```diff
-// ./prisma/schema.prisma
-
-model User {
-  id      Int      @default(autoincrement()) @id
-  name    String?
-  email   String   @unique
-  posts   Post[]
-+ profile Profile?
-}
-
-model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  viewCount Int      @default(0)
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  Int?
-}
-
-+model Profile {
-+  id     Int     @default(autoincrement()) @id
-+  bio    String?
-+  user   User    @relation(fields: [userId], references: [id])
-+  userId Int     @unique
-+}
-```
-
-Once you've updated your data model, you can execute the changes against your database with the following command:
+## Project Structure
 
 ```
-npx prisma migrate dev --name add-profile
+SentinelAI/
+├── backend/
+│   ├── app/
+│   │   ├── api/v1/
+│   │   │   ├── agents/        # 7 LangGraph agents
+│   │   │   └── endpoints/     # REST API routes
+│   │   ├── core/              # Config, DB, security
+│   │   ├── llm/               # LangGraph state machine
+│   │   ├── models/            # SQLAlchemy models
+│   │   ├── schemas/           # Pydantic schemas
+│   │   └── services/          # Neo4j, Qdrant, OpenAI
+│   └── requirements.txt
+├── frontend/
+│   ├── src/
+│   │   ├── app/               # Next.js pages
+│   │   ├── components/        # UI components
+│   │   ├── services/          # API service layer
+│   │   └── store/             # Zustand state
+│   └── package.json
+├── tests/                     # pytest suite
+└── .github/workflows/         # CI pipeline
 ```
 
-This adds another migration to the `prisma/migrations` directory and creates the new `Profile` table in the database.
+## License
 
-### 2. Update your application code
-
-You can now use your `PrismaClient` instance to perform operations against the new `Profile` table. Those operations can be used to implement new pages in the app.
-
-## Switch to another database (e.g. SQLite, MySQL, SQL Server, MongoDB)
-
-If you want to try this example with another database than Postgres, you can adjust the the database connection in [`prisma/schema.prisma`](./prisma/schema.prisma) by reconfiguring the `datasource` block.
-
-Learn more about the different connection configurations in the [docs](https://www.prisma.io/docs/reference/database-reference/connection-urls).
-
-<details><summary>Expand for an overview of example configurations with different databases</summary>
-
-### Your own PostgreSQL database
-
-To use your own PostgreSQL database, set `DATABASE_URL` to your connection string (e.g. `postgres://<username>:<password>@<host>:<port>/<database>`). Ensure your app initializes `PrismaClient` with the `@prisma/adapter-pg` driver adapter as shown above.
-
-### SQLite
-
-Modify the `provider` value in the `datasource` block in the [`prisma.schema`](./prisma/schema.prisma) file:
-
-```prisma
-datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
-}
-```
-
-Create an `.env` file and add the SQLite database connection string in it. For example:
-
-```terminal
-DATABASE_URL="file:./dev.db""
-```
-
-### MySQL
-
-Modify the `provider` value in the `datasource` block in the [`prisma.schema`](./prisma/schema.prisma) file:
-
-```prisma
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
-}
-```
-
-Create an `.env` file and add a MySQL database connection string in it. For example:
-
-```terminal
-## This is a placeholder url
-DATABASE_URL="mysql://janedoe:mypassword@localhost:3306/notesapi"
-```
-
-### Microsoft SQL Server
-
-Modify the `provider` value in the `datasource` block in the [`prisma.schema`](./prisma/schema.prisma) file:
-
-```prisma
-datasource db {
-  provider = "sqlserver"
-  url      = env("DATABASE_URL")
-}
-```
-
-Create an `.env` file and add a Microsoft SQL Server database connection string in it. For example:
-
-```terminal
-## This is a placeholder url
-DATABASE_URL="sqlserver://localhost:1433;initial catalog=sample;user=sa;password=mypassword;"
-```
-
-### MongoDB
-
-Modify the `provider` value in the `datasource` block in the [`prisma.schema`](./prisma/schema.prisma) file:
-
-```prisma
-datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
-}
-```
-
-Create an `.env` file and add a local MongoDB database connection string in it. For example:
-
-```terminal
-## This is a placeholder url
-DATABASE_URL="mongodb://USERNAME:PASSWORD@HOST/DATABASE?authSource=admin&retryWrites=true&w=majority"
-```
-
-</details>
-
-## Next steps
-
-- Check out the [Prisma docs](https://www.prisma.io/docs)
-- [Join our community on Discord](https://pris.ly/discord?utm_source=github&utm_medium=prisma_examples&utm_content=next_steps_section) to share feedback and interact with other users.
-- [Subscribe to our YouTube channel](https://pris.ly/youtube?utm_source=github&utm_medium=prisma_examples&utm_content=next_steps_section) for live demos and video tutorials.
-- [Follow us on X](https://pris.ly/x?utm_source=github&utm_medium=prisma_examples&utm_content=next_steps_section) for the latest updates.
-- Report issues or ask [questions on GitHub](https://pris.ly/github?utm_source=github&utm_medium=prisma_examples&utm_content=next_steps_section).
+Private — Hackathon Project

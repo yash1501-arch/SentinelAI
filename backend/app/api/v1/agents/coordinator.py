@@ -48,7 +48,15 @@ class CoordinatorAgent:
                 max_tokens=150,
             )
 
-            result = json.loads(response.choices[0].message.content.strip())
+            raw = response.choices[0].message.content.strip()
+            # Handle markdown-wrapped JSON
+            if raw.startswith("```"):
+                raw = raw.split("```")[1]
+                if raw.startswith("json"):
+                    raw = raw[4:]
+                raw = raw.strip()
+
+            result = json.loads(raw)
             intent_str = result.get("intent", "general")
             state["intent"] = IntentType(intent_str)
             state["intent_confidence"] = float(result.get("confidence", 0.8))
