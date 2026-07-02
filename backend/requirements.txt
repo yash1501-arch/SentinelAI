@@ -24,22 +24,23 @@ langchain==0.3.6
 langchain-openai==0.2.2
 langgraph==0.2.32
 langchain-community==0.3.4
-sentence-transformers==3.1.1
+# sentence-transformers excluded for deploy (uses too much RAM)
+# Embeddings already seeded in Qdrant Cloud
 
 # ML/Data Science
 scikit-learn==1.5.2
 xgboost==2.1.1
-prophet==1.1.6
+# prophet excluded for deploy (too heavy for 512MB)
 networkx==3.3
 shap==0.46.0
 numpy>=1.26.4
 pandas==2.2.3
 scipy==1.14.1
 
-# Visualization
-plotly==5.24.1
-matplotlib==3.9.2
-seaborn==0.13.2
+# Visualization (optional, for local dev)
+# plotly==5.24.1
+# matplotlib==3.9.2
+# seaborn==0.13.2
 
 # PDF Export
 reportlab==4.2.2
@@ -48,7 +49,6 @@ reportlab==4.2.2
 # Using OpenAI Whisper API (not local whisper package)
 
 # Async/Tasks
-celery==5.4.0
 sse-starlette==2.1.3
 tenacity==9.0.0
 
