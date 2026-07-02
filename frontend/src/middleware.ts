@@ -6,13 +6,17 @@ const publicPaths = ["/login", "/register", "/landing"];
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Root path shows landing page — always public
+  if (pathname === "/") {
+    return NextResponse.next();
+  }
+
   // Allow public paths and static assets
   if (publicPaths.some((p) => pathname.startsWith(p))) {
     return NextResponse.next();
   }
 
-  // For all other routes, let the client-side auth handle it.
-  // The dashboard layout checks localStorage for the token.
+  // All other routes handled by client-side auth in dashboard layout
   return NextResponse.next();
 }
 
