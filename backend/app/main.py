@@ -19,6 +19,11 @@ async def lifespan(app: FastAPI):
     async with async_session_factory() as session:
         await seed_database(session)
 
+    # Seed official Karnataka Police schema tables
+    async with async_session_factory() as session:
+        from app.db.seed_official import seed_official_schema
+        await seed_official_schema(session)
+
     # Initialize optional services (don't crash if unavailable)
     try:
         from app.services.qdrant_service import QdrantService

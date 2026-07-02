@@ -9,9 +9,12 @@ Usage:
 """
 import sys
 import asyncio
+import os
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "backend"))
+BACKEND_DIR = Path(__file__).resolve().parents[1] / "backend"
+sys.path.insert(0, str(BACKEND_DIR))
+os.chdir(str(BACKEND_DIR))
 
 from app.core.config import settings
 

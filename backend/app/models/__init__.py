@@ -14,3 +14,13 @@ from app.models.associations import (
     incident_emails, incident_bank_accounts, person_addresses,
     gang_members, organization_members,
 )
+from app.models.official_schema import (
+    StateMaster, DistrictMaster, UnitTypeMaster, UnitMaster,
+    RankMaster, DesignationMaster, OccupationMaster, ReligionMaster,
+    CasteMaster, CaseCategoryMaster, GravityOffenceMaster, CaseStatusMaster,
+    ActMaster, SectionMaster, CrimeHeadMaster, CrimeSubHeadMaster,
+    CrimeHeadActSection, CourtMaster, EmployeeMaster,
+    CaseMaster, ComplainantDetails, VictimOfficial, AccusedOfficial,
+    ArrestSurrender, ArrestSurrenderAccused, ActSectionAssociation,
+    ChargesheetDetails,
+)

@@ -9,10 +9,13 @@ Usage:
 """
 import sys
 import asyncio
+import os
 from pathlib import Path
 
 # Add backend to path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "backend"))
+BACKEND_DIR = Path(__file__).resolve().parents[1] / "backend"
+sys.path.insert(0, str(BACKEND_DIR))
+os.chdir(str(BACKEND_DIR))  # So .env is found
 
 from app.core.config import settings
 from app.core.database import async_session_factory, init_db
@@ -26,7 +29,7 @@ async def seed_embeddings():
     from qdrant_client.models import PointStruct, VectorParams, Distance
 
     print(f"Connecting to Qdrant at {settings.QDRANT_URL}...")
-    client = QdrantClient(url=settings.QDRANT_URL, api_key=settings.QDRANT_API_KEY or None)
+    client = QdrantClient(url=settings.QDRANT_URL, api_key=settings.QDRANT_API_KEY or None, timeout=30)
 
     # Ensure collections exist
     collections = client.get_collections().collections
