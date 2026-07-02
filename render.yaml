@@ -1,9 +1,10 @@
 services:
   - type: web
     name: sentinelai-backend
-    runtime: docker
-    dockerfilePath: ./Dockerfile
-    dockerContext: .
+    runtime: python
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     plan: free
     envVars:
       - key: POSTGRES_URL
