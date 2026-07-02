@@ -1,7 +1,7 @@
 FROM python:3.13-slim AS builder
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential gcc g++ cmake libgomp1 && \
+    build-essential gcc g++ cmake libgomp1 libpq-dev && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
