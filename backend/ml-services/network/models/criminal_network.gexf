@@ -1,0 +1,1094 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-06-27">
+    <creator>NetworkX 3.6.1</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="2" title="relationship" type="string" />
+    </attributes>
+    <attributes mode="static" class="node">
+      <attribute id="0" title="type" type="string" />
+      <attribute id="1" title="metadata" type="string" />
+    </attributes>
+    <nodes>
+      <node id="GANG-000" label="Gang A">
+        <attvalues>
+          <attvalue for="0" value="gang" />
+          <attvalue for="1" value="{'size': 18}" />
+        </attvalues>
+      </node>
+      <node id="P-64886" label="Person 64886">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-97498" label="Person 97498">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-10769" label="Person 10769">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-93104" label="Person 93104">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-35658" label="Person 35658">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-12747" label="Person 12747">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-66886" label="Person 66886">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-97313" label="Person 97313">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-33483" label="Person 33483">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('enforcer'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-90077" label="Person 90077">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-88953" label="Person 88953">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-82409" label="Person 82409">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-50397" label="Person 50397">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('recruiter'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-65591" label="Person 65591">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('financier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-48044" label="Person 48044">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('financier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-50774" label="Person 50774">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-58190" label="Person 58190">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('financier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="P-36854" label="Person 36854">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-000'}" />
+        </attvalues>
+      </node>
+      <node id="GANG-001" label="Gang B">
+        <attvalues>
+          <attvalue for="0" value="gang" />
+          <attvalue for="1" value="{'size': 26}" />
+        </attvalues>
+      </node>
+      <node id="P-45222" label="Person 45222">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-80592" label="Person 80592">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-10206" label="Person 10206">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-60636" label="Person 60636">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('recruiter'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-81910" label="Person 81910">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-85450" label="Person 85450">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-79163" label="Person 79163">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-31976" label="Person 31976">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-76842" label="Person 76842">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-31959" label="Person 31959">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-76199" label="Person 76199">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-64384" label="Person 64384">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('enforcer'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-75318" label="Person 75318">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-36736" label="Person 36736">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-48623" label="Person 48623">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-60859" label="Person 60859">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-22688" label="Person 22688">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-90623" label="Person 90623">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('financier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-61663" label="Person 61663">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('leader'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-44754" label="Person 44754">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('financier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-18680" label="Person 18680">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-18155" label="Person 18155">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-70713" label="Person 70713">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-30932" label="Person 30932">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-25151" label="Person 25151">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('financier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="P-58354" label="Person 58354">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-001'}" />
+        </attvalues>
+      </node>
+      <node id="GANG-002" label="Gang C">
+        <attvalues>
+          <attvalue for="0" value="gang" />
+          <attvalue for="1" value="{'size': 19}" />
+        </attvalues>
+      </node>
+      <node id="P-87505" label="Person 87505">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-33328" label="Person 33328">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-56214" label="Person 56214">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-55525" label="Person 55525">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-86213" label="Person 86213">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-49790" label="Person 49790">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-83744" label="Person 83744">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-53525" label="Person 53525">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-28711" label="Person 28711">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-20492" label="Person 20492">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-44584" label="Person 44584">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-82991" label="Person 82991">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-20729" label="Person 20729">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-64748" label="Person 64748">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-20647" label="Person 20647">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-16655" label="Person 16655">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-97922" label="Person 97922">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-20966" label="Person 20966">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="P-60300" label="Person 60300">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('financier'), 'gang': 'GANG-002'}" />
+        </attvalues>
+      </node>
+      <node id="GANG-003" label="Gang D">
+        <attvalues>
+          <attvalue for="0" value="gang" />
+          <attvalue for="1" value="{'size': 17}" />
+        </attvalues>
+      </node>
+      <node id="P-63006" label="Person 63006">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-90135" label="Person 90135">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('financier'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-97235" label="Person 97235">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('financier'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-90738" label="Person 90738">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-96672" label="Person 96672">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-42217" label="Person 42217">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-26896" label="Person 26896">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-30056" label="Person 30056">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-69638" label="Person 69638">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('leader'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-82789" label="Person 82789">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('leader'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-64340" label="Person 64340">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('enforcer'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-53919" label="Person 53919">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('enforcer'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-69101" label="Person 69101">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-89605" label="Person 89605">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-50158" label="Person 50158">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('leader'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-67679" label="Person 67679">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="P-98223" label="Person 98223">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-003'}" />
+        </attvalues>
+      </node>
+      <node id="GANG-004" label="Gang E">
+        <attvalues>
+          <attvalue for="0" value="gang" />
+          <attvalue for="1" value="{'size': 15}" />
+        </attvalues>
+      </node>
+      <node id="P-48304" label="Person 48304">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-96027" label="Person 96027">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('enforcer'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-37350" label="Person 37350">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('enforcer'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-75953" label="Person 75953">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-21338" label="Person 21338">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('informant'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-28888" label="Person 28888">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-80640" label="Person 80640">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('financier'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-81180" label="Person 81180">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-24397" label="Person 24397">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-49954" label="Person 49954">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-82936" label="Person 82936">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('financier'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-70921" label="Person 70921">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-99112" label="Person 99112">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-99780" label="Person 99780">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+      <node id="P-19348" label="Person 19348">
+        <attvalues>
+          <attvalue for="0" value="person" />
+          <attvalue for="1" value="{'role': np.str_('foot soldier'), 'gang': 'GANG-004'}" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="GANG-000" target="P-64886" id="0" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-97498" id="1" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-10769" id="2" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-93104" id="3" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-35658" id="4" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-12747" id="5" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-66886" id="6" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-97313" id="7" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-33483" id="8" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-90077" id="9" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-88953" id="10" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-82409" id="11" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-50397" id="12" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-65591" id="13" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-48044" id="14" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-50774" id="15" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-58190" id="16" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-000" target="P-36854" id="17" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-45222" id="18" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-80592" id="19" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-10206" id="20" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-60636" id="21" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-81910" id="22" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-85450" id="23" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-79163" id="24" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-31976" id="25" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-76842" id="26" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-31959" id="27" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-76199" id="28" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-64384" id="29" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-75318" id="30" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-36736" id="31" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-48623" id="32" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-60859" id="33" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-22688" id="34" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-90623" id="35" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-61663" id="36" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-44754" id="37" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-18680" id="38" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-18155" id="39" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-70713" id="40" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-30932" id="41" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-25151" id="42" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-001" target="P-58354" id="43" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-87505" id="44" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-33328" id="45" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-56214" id="46" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-55525" id="47" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-86213" id="48" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-49790" id="49" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-83744" id="50" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-53525" id="51" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-28711" id="52" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-20492" id="53" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-44584" id="54" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-82991" id="55" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-20729" id="56" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-64748" id="57" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-20647" id="58" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-16655" id="59" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-97922" id="60" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-20966" id="61" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-002" target="P-60300" id="62" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-63006" id="63" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-90135" id="64" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-97235" id="65" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-90738" id="66" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-96672" id="67" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-42217" id="68" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-26896" id="69" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-30056" id="70" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-69638" id="71" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-82789" id="72" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-64340" id="73" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-53919" id="74" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-69101" id="75" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-89605" id="76" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-50158" id="77" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-67679" id="78" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-003" target="P-98223" id="79" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-48304" id="80" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-96027" id="81" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-37350" id="82" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-75953" id="83" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-21338" id="84" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-28888" id="85" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-80640" id="86" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-81180" id="87" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-24397" id="88" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-49954" id="89" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-82936" id="90" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-70921" id="91" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-99112" id="92" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-99780" id="93" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge source="GANG-004" target="P-19348" id="94" weight="1.0">
+        <attvalues>
+          <attvalue for="2" value="member_of" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

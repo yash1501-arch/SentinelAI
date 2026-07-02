@@ -1,0 +1,251 @@
+case_id,crime_type,description
+CASE-theft-000,theft,Burglary at Whitefield. Perpetrator entered through window and stole cash.
+CASE-assault-000,assault,Victim was attacked near Whitefield by 2 suspects. critical injuries reported.
+CASE-robbery-000,robbery,Street robbery near Jayanagar. Perpetrator fled on foot with stolen laptop.
+CASE-fraud-000,fraud,Credit card skimming at Rajajinagar. 3 suspects involved in operation.
+CASE-homicide-000,homicide,Homicide investigation at Koramangala. Victim identified as a 28-year-old female.
+CASE-theft-001,theft,Complainant reported missing mobile phone from Yelahanka. Investigation ongoing.
+CASE-assault-001,assault,Physical altercation at MG Road involving 2 persons. Weapon used: gun.
+CASE-robbery-001,robbery,Street robbery near Rajajinagar. Perpetrator fled on foot with stolen jewelry.
+CASE-fraud-001,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 314358 detected.
+CASE-homicide-001,homicide,Murder case. Body discovered at Yelahanka with moderate injuries.
+CASE-theft-002,theft,Suspect stole mobile phone from Jayanagar at evening. CCTV footage shows severe.
+CASE-assault-002,assault,Assault and battery case. Victim treated for minor injuries at local hospital.
+CASE-robbery-002,robbery,Chain snatching incident at Koramangala. Suspect approached on motorcycle.
+CASE-fraud-002,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 111687 detected.
+CASE-homicide-002,homicide,Murder case. Body discovered at Marathahalli with critical injuries.
+CASE-theft-003,theft,Complainant reported missing mobile phone from Indiranagar. Investigation ongoing.
+CASE-assault-003,assault,Assault and battery case. Victim treated for minor injuries at local hospital.
+CASE-robbery-003,robbery,Armed robbery at Whitefield. Suspects brandished iron rod and demanded valuables.
+CASE-fraud-003,fraud,Credit card skimming at Rajajinagar. 3 suspects involved in operation.
+CASE-homicide-003,homicide,Suspicious death at Whitefield. Forensic analysis matching suspect DNA found.
+CASE-theft-004,theft,Suspect stole mobile phone from Indiranagar at early morning. CCTV footage shows severe.
+CASE-assault-004,assault,Victim was attacked near Rajajinagar by 3 suspects. moderate injuries reported.
+CASE-robbery-004,robbery,Street robbery near Electronic City. Perpetrator fled on foot with stolen cash.
+CASE-fraud-004,fraud,Credit card skimming at BTM Layout. 3 suspects involved in operation.
+CASE-homicide-004,homicide,Murder case. Body discovered at Whitefield with moderate injuries.
+CASE-theft-005,theft,Complainant reported missing bicycle from Marathahalli. Investigation ongoing.
+CASE-assault-005,assault,Physical altercation at MG Road involving 1 persons. Weapon used: iron rod.
+CASE-robbery-005,robbery,Chain snatching incident at Koramangala. Suspect approached on motorcycle.
+CASE-fraud-005,fraud,Credit card skimming at Yelahanka. 2 suspects involved in operation.
+CASE-homicide-005,homicide,Homicide investigation at Whitefield. Victim identified as a 45-year-old male.
+CASE-theft-006,theft,Suspect stole motorcycle from MG Road at early morning. CCTV footage shows critical.
+CASE-assault-006,assault,Physical altercation at Jayanagar involving 3 persons. Weapon used: knife.
+CASE-robbery-006,robbery,Chain snatching incident at MG Road. Suspect approached on motorcycle.
+CASE-fraud-006,fraud,Online fraud case. Victim transferred Rs. 125019 to fake account purporting to be insurance company.
+CASE-homicide-006,homicide,Murder case. Body discovered at MG Road with moderate injuries.
+CASE-theft-007,theft,Complainant reported missing bicycle from BTM Layout. Investigation ongoing.
+CASE-assault-007,assault,Assault and battery case. Victim treated for minor injuries at local hospital.
+CASE-robbery-007,robbery,Street robbery near Marathahalli. Perpetrator fled on foot with stolen laptop.
+CASE-fraud-007,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 285821 detected.
+CASE-homicide-007,homicide,Homicide investigation at Whitefield. Victim identified as a 35-year-old male.
+CASE-theft-008,theft,Burglary at Whitefield. Perpetrator entered through main door and stole documents.
+CASE-assault-008,assault,Physical altercation at Koramangala involving 3 persons. Weapon used: gun.
+CASE-robbery-008,robbery,Armed robbery at Marathahalli. Suspects brandished gun and demanded valuables.
+CASE-fraud-008,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 135415 detected.
+CASE-homicide-008,homicide,Homicide investigation at BTM Layout. Victim identified as a 35-year-old male.
+CASE-theft-009,theft,Complainant reported missing bicycle from Jayanagar. Investigation ongoing.
+CASE-assault-009,assault,Victim was attacked near Marathahalli by 2 suspects. severe injuries reported.
+CASE-robbery-009,robbery,Chain snatching incident at Rajajinagar. Suspect approached on motorcycle.
+CASE-fraud-009,fraud,Online fraud case. Victim transferred Rs. 5000 to fake account purporting to be bank.
+CASE-homicide-009,homicide,Homicide investigation at Koramangala. Victim identified as a 45-year-old male.
+CASE-theft-010,theft,Complainant reported missing mobile phone from Koramangala. Investigation ongoing.
+CASE-assault-010,assault,Physical altercation at Koramangala involving 2 persons. Weapon used: gun.
+CASE-robbery-010,robbery,Armed robbery at Yelahanka. Suspects brandished iron rod and demanded valuables.
+CASE-fraud-010,fraud,Credit card skimming at Electronic City. 1 suspects involved in operation.
+CASE-homicide-010,homicide,Murder case. Body discovered at Yelahanka with minor injuries.
+CASE-theft-011,theft,Suspect stole jewelry from Whitefield at daytime. CCTV footage shows minor.
+CASE-assault-011,assault,Assault and battery case. Victim treated for minor injuries at local hospital.
+CASE-robbery-011,robbery,Armed robbery at Marathahalli. Suspects brandished gun and demanded valuables.
+CASE-fraud-011,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 104150 detected.
+CASE-homicide-011,homicide,Suspicious death at MG Road. Forensic analysis inconclusive.
+CASE-theft-012,theft,Complainant reported missing cash from Jayanagar. Investigation ongoing.
+CASE-assault-012,assault,Assault and battery case. Victim treated for moderate injuries at local hospital.
+CASE-robbery-012,robbery,Chain snatching incident at Rajajinagar. Suspect approached on motorcycle.
+CASE-fraud-012,fraud,Online fraud case. Victim transferred Rs. 493734 to fake account purporting to be online store.
+CASE-homicide-012,homicide,Homicide investigation at BTM Layout. Victim identified as a 35-year-old male.
+CASE-theft-013,theft,Suspect stole jewelry from Jayanagar at evening. CCTV footage shows critical.
+CASE-assault-013,assault,Victim was attacked near Jayanagar by 3 suspects. critical injuries reported.
+CASE-robbery-013,robbery,Street robbery near Whitefield. Perpetrator fled on foot with stolen mobile phone.
+CASE-fraud-013,fraud,Credit card skimming at MG Road. 1 suspects involved in operation.
+CASE-homicide-013,homicide,Suspicious death at Indiranagar. Forensic analysis inconclusive.
+CASE-theft-014,theft,Burglary at Jayanagar. Perpetrator entered through window and stole bicycle.
+CASE-assault-014,assault,Victim was attacked near Rajajinagar by 3 suspects. severe injuries reported.
+CASE-robbery-014,robbery,Chain snatching incident at MG Road. Suspect approached on motorcycle.
+CASE-fraud-014,fraud,Credit card skimming at Jayanagar. 1 suspects involved in operation.
+CASE-homicide-014,homicide,Homicide investigation at MG Road. Victim identified as a 28-year-old female.
+CASE-theft-015,theft,Burglary at Rajajinagar. Perpetrator entered through main door and stole mobile phone.
+CASE-assault-015,assault,Victim was attacked near Yelahanka by 3 suspects. critical injuries reported.
+CASE-robbery-015,robbery,Chain snatching incident at Marathahalli. Suspect approached on motorcycle.
+CASE-fraud-015,fraud,Credit card skimming at Koramangala. 1 suspects involved in operation.
+CASE-homicide-015,homicide,Suspicious death at Koramangala. Forensic analysis inconclusive.
+CASE-theft-016,theft,Complainant reported missing mobile phone from Jayanagar. Investigation ongoing.
+CASE-assault-016,assault,Assault and battery case. Victim treated for moderate injuries at local hospital.
+CASE-robbery-016,robbery,Street robbery near Koramangala. Perpetrator fled on foot with stolen wallet.
+CASE-fraud-016,fraud,Online fraud case. Victim transferred Rs. 92865 to fake account purporting to be bank.
+CASE-homicide-016,homicide,Suspicious death at Yelahanka. Forensic analysis indicates foul play.
+CASE-theft-017,theft,Complainant reported missing laptop from Whitefield. Investigation ongoing.
+CASE-assault-017,assault,Physical altercation at Marathahalli involving 1 persons. Weapon used: iron rod.
+CASE-robbery-017,robbery,Chain snatching incident at Indiranagar. Suspect approached on motorcycle.
+CASE-fraud-017,fraud,Online fraud case. Victim transferred Rs. 105592 to fake account purporting to be bank.
+CASE-homicide-017,homicide,Murder case. Body discovered at Yelahanka with critical injuries.
+CASE-theft-018,theft,Complainant reported missing cash from Yelahanka. Investigation ongoing.
+CASE-assault-018,assault,Physical altercation at Jayanagar involving 2 persons. Weapon used: baseball bat.
+CASE-robbery-018,robbery,Street robbery near Electronic City. Perpetrator fled on foot with stolen bicycle.
+CASE-fraud-018,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 113221 detected.
+CASE-homicide-018,homicide,Suspicious death at Yelahanka. Forensic analysis inconclusive.
+CASE-theft-019,theft,Complainant reported missing wallet from Whitefield. Investigation ongoing.
+CASE-assault-019,assault,Physical altercation at Whitefield involving 1 persons. Weapon used: gun.
+CASE-robbery-019,robbery,Street robbery near Indiranagar. Perpetrator fled on foot with stolen cash.
+CASE-fraud-019,fraud,Credit card skimming at Electronic City. 2 suspects involved in operation.
+CASE-homicide-019,homicide,Homicide investigation at Electronic City. Victim identified as a 28-year-old female.
+CASE-theft-020,theft,Burglary at Yelahanka. Perpetrator entered through main door and stole cash.
+CASE-assault-020,assault,Physical altercation at Rajajinagar involving 1 persons. Weapon used: knife.
+CASE-robbery-020,robbery,Chain snatching incident at BTM Layout. Suspect approached on motorcycle.
+CASE-fraud-020,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 97646 detected.
+CASE-homicide-020,homicide,Murder case. Body discovered at MG Road with critical injuries.
+CASE-theft-021,theft,Suspect stole laptop from Marathahalli at night. CCTV footage shows moderate.
+CASE-assault-021,assault,Physical altercation at BTM Layout involving 1 persons. Weapon used: baseball bat.
+CASE-robbery-021,robbery,Armed robbery at Whitefield. Suspects brandished iron rod and demanded valuables.
+CASE-fraud-021,fraud,Credit card skimming at Jayanagar. 2 suspects involved in operation.
+CASE-homicide-021,homicide,Suspicious death at Indiranagar. Forensic analysis indicates foul play.
+CASE-theft-022,theft,Burglary at Rajajinagar. Perpetrator entered through window and stole laptop.
+CASE-assault-022,assault,Assault and battery case. Victim treated for minor injuries at local hospital.
+CASE-robbery-022,robbery,Chain snatching incident at BTM Layout. Suspect approached on motorcycle.
+CASE-fraud-022,fraud,Online fraud case. Victim transferred Rs. 467725 to fake account purporting to be government agency.
+CASE-homicide-022,homicide,Murder case. Body discovered at Indiranagar with moderate injuries.
+CASE-theft-023,theft,Burglary at Whitefield. Perpetrator entered through window and stole documents.
+CASE-assault-023,assault,Physical altercation at Jayanagar involving 1 persons. Weapon used: baseball bat.
+CASE-robbery-023,robbery,Armed robbery at Marathahalli. Suspects brandished iron rod and demanded valuables.
+CASE-fraud-023,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 65077 detected.
+CASE-homicide-023,homicide,Suspicious death at BTM Layout. Forensic analysis indicates foul play.
+CASE-theft-024,theft,Burglary at Marathahalli. Perpetrator entered through main door and stole wallet.
+CASE-assault-024,assault,Physical altercation at Marathahalli involving 1 persons. Weapon used: iron rod.
+CASE-robbery-024,robbery,Street robbery near Yelahanka. Perpetrator fled on foot with stolen bicycle.
+CASE-fraud-024,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 87925 detected.
+CASE-homicide-024,homicide,Murder case. Body discovered at Rajajinagar with critical injuries.
+CASE-theft-025,theft,Complainant reported missing bicycle from MG Road. Investigation ongoing.
+CASE-assault-025,assault,Victim was attacked near BTM Layout by 2 suspects. minor injuries reported.
+CASE-robbery-025,robbery,Armed robbery at Rajajinagar. Suspects brandished knife and demanded valuables.
+CASE-fraud-025,fraud,Online fraud case. Victim transferred Rs. 314837 to fake account purporting to be online store.
+CASE-homicide-025,homicide,Homicide investigation at Indiranagar. Victim identified as a 35-year-old male.
+CASE-theft-026,theft,Complainant reported missing cash from MG Road. Investigation ongoing.
+CASE-assault-026,assault,Victim was attacked near BTM Layout by 1 suspects. severe injuries reported.
+CASE-robbery-026,robbery,Street robbery near Jayanagar. Perpetrator fled on foot with stolen jewelry.
+CASE-fraud-026,fraud,Credit card skimming at Jayanagar. 1 suspects involved in operation.
+CASE-homicide-026,homicide,Murder case. Body discovered at Electronic City with severe injuries.
+CASE-theft-027,theft,Burglary at Koramangala. Perpetrator entered through main door and stole jewelry.
+CASE-assault-027,assault,Physical altercation at Jayanagar involving 1 persons. Weapon used: knife.
+CASE-robbery-027,robbery,Chain snatching incident at Koramangala. Suspect approached on motorcycle.
+CASE-fraud-027,fraud,Credit card skimming at MG Road. 1 suspects involved in operation.
+CASE-homicide-027,homicide,Murder case. Body discovered at Jayanagar with minor injuries.
+CASE-theft-028,theft,Complainant reported missing cash from Yelahanka. Investigation ongoing.
+CASE-assault-028,assault,Physical altercation at Marathahalli involving 3 persons. Weapon used: iron rod.
+CASE-robbery-028,robbery,Chain snatching incident at Indiranagar. Suspect approached on motorcycle.
+CASE-fraud-028,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 489618 detected.
+CASE-homicide-028,homicide,Murder case. Body discovered at Marathahalli with minor injuries.
+CASE-theft-029,theft,Complainant reported missing bicycle from Indiranagar. Investigation ongoing.
+CASE-assault-029,assault,Assault and battery case. Victim treated for minor injuries at local hospital.
+CASE-robbery-029,robbery,Armed robbery at Rajajinagar. Suspects brandished broken bottle and demanded valuables.
+CASE-fraud-029,fraud,Online fraud case. Victim transferred Rs. 434816 to fake account purporting to be online store.
+CASE-homicide-029,homicide,Suspicious death at Yelahanka. Forensic analysis inconclusive.
+CASE-theft-030,theft,Burglary at Electronic City. Perpetrator entered through back door and stole bicycle.
+CASE-assault-030,assault,Victim was attacked near BTM Layout by 2 suspects. minor injuries reported.
+CASE-robbery-030,robbery,Armed robbery at Rajajinagar. Suspects brandished knife and demanded valuables.
+CASE-fraud-030,fraud,Online fraud case. Victim transferred Rs. 160903 to fake account purporting to be insurance company.
+CASE-homicide-030,homicide,Homicide investigation at Yelahanka. Victim identified as a 45-year-old male.
+CASE-theft-031,theft,Suspect stole wallet from Yelahanka at daytime. CCTV footage shows severe.
+CASE-assault-031,assault,Assault and battery case. Victim treated for minor injuries at local hospital.
+CASE-robbery-031,robbery,Armed robbery at MG Road. Suspects brandished iron rod and demanded valuables.
+CASE-fraud-031,fraud,Online fraud case. Victim transferred Rs. 477840 to fake account purporting to be bank.
+CASE-homicide-031,homicide,Homicide investigation at Jayanagar. Victim identified as a 45-year-old male.
+CASE-theft-032,theft,Complainant reported missing wallet from Yelahanka. Investigation ongoing.
+CASE-assault-032,assault,Physical altercation at Whitefield involving 1 persons. Weapon used: gun.
+CASE-robbery-032,robbery,Armed robbery at Yelahanka. Suspects brandished broken bottle and demanded valuables.
+CASE-fraud-032,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 230947 detected.
+CASE-homicide-032,homicide,Homicide investigation at BTM Layout. Victim identified as a 28-year-old female.
+CASE-theft-033,theft,Complainant reported missing laptop from BTM Layout. Investigation ongoing.
+CASE-assault-033,assault,Assault and battery case. Victim treated for moderate injuries at local hospital.
+CASE-robbery-033,robbery,Chain snatching incident at Rajajinagar. Suspect approached on motorcycle.
+CASE-fraud-033,fraud,Online fraud case. Victim transferred Rs. 445191 to fake account purporting to be government agency.
+CASE-homicide-033,homicide,Suspicious death at Koramangala. Forensic analysis matching suspect DNA found.
+CASE-theft-034,theft,Suspect stole wallet from Jayanagar at evening. CCTV footage shows minor.
+CASE-assault-034,assault,Physical altercation at Electronic City involving 1 persons. Weapon used: broken bottle.
+CASE-robbery-034,robbery,Street robbery near Whitefield. Perpetrator fled on foot with stolen bicycle.
+CASE-fraud-034,fraud,Online fraud case. Victim transferred Rs. 253859 to fake account purporting to be insurance company.
+CASE-homicide-034,homicide,Homicide investigation at Jayanagar. Victim identified as a 35-year-old male.
+CASE-theft-035,theft,Complainant reported missing documents from Indiranagar. Investigation ongoing.
+CASE-assault-035,assault,Victim was attacked near Electronic City by 1 suspects. critical injuries reported.
+CASE-robbery-035,robbery,Street robbery near Whitefield. Perpetrator fled on foot with stolen laptop.
+CASE-fraud-035,fraud,Online fraud case. Victim transferred Rs. 213133 to fake account purporting to be insurance company.
+CASE-homicide-035,homicide,Suspicious death at Indiranagar. Forensic analysis matching suspect DNA found.
+CASE-theft-036,theft,Burglary at BTM Layout. Perpetrator entered through main door and stole laptop.
+CASE-assault-036,assault,Physical altercation at Marathahalli involving 2 persons. Weapon used: gun.
+CASE-robbery-036,robbery,Street robbery near Indiranagar. Perpetrator fled on foot with stolen documents.
+CASE-fraud-036,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 221971 detected.
+CASE-homicide-036,homicide,Murder case. Body discovered at BTM Layout with moderate injuries.
+CASE-theft-037,theft,Suspect stole bicycle from BTM Layout at evening. CCTV footage shows minor.
+CASE-assault-037,assault,Victim was attacked near Electronic City by 2 suspects. moderate injuries reported.
+CASE-robbery-037,robbery,Armed robbery at Whitefield. Suspects brandished gun and demanded valuables.
+CASE-fraud-037,fraud,Credit card skimming at Koramangala. 3 suspects involved in operation.
+CASE-homicide-037,homicide,Murder case. Body discovered at Rajajinagar with moderate injuries.
+CASE-theft-038,theft,Suspect stole documents from Jayanagar at daytime. CCTV footage shows minor.
+CASE-assault-038,assault,Victim was attacked near Whitefield by 1 suspects. severe injuries reported.
+CASE-robbery-038,robbery,Armed robbery at Jayanagar. Suspects brandished iron rod and demanded valuables.
+CASE-fraud-038,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 498415 detected.
+CASE-homicide-038,homicide,Suspicious death at Whitefield. Forensic analysis indicates foul play.
+CASE-theft-039,theft,Burglary at BTM Layout. Perpetrator entered through back door and stole jewelry.
+CASE-assault-039,assault,Victim was attacked near MG Road by 1 suspects. severe injuries reported.
+CASE-robbery-039,robbery,Street robbery near Rajajinagar. Perpetrator fled on foot with stolen jewelry.
+CASE-fraud-039,fraud,Credit card skimming at Electronic City. 3 suspects involved in operation.
+CASE-homicide-039,homicide,Suspicious death at Rajajinagar. Forensic analysis indicates foul play.
+CASE-theft-040,theft,Burglary at BTM Layout. Perpetrator entered through main door and stole bicycle.
+CASE-assault-040,assault,Physical altercation at MG Road involving 1 persons. Weapon used: iron rod.
+CASE-robbery-040,robbery,Armed robbery at Koramangala. Suspects brandished broken bottle and demanded valuables.
+CASE-fraud-040,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 159280 detected.
+CASE-homicide-040,homicide,Homicide investigation at Whitefield. Victim identified as a 28-year-old female.
+CASE-theft-041,theft,Suspect stole wallet from Marathahalli at daytime. CCTV footage shows critical.
+CASE-assault-041,assault,Assault and battery case. Victim treated for minor injuries at local hospital.
+CASE-robbery-041,robbery,Street robbery near Koramangala. Perpetrator fled on foot with stolen motorcycle.
+CASE-fraud-041,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 421814 detected.
+CASE-homicide-041,homicide,Murder case. Body discovered at BTM Layout with moderate injuries.
+CASE-theft-042,theft,Burglary at Jayanagar. Perpetrator entered through main door and stole jewelry.
+CASE-assault-042,assault,Physical altercation at Whitefield involving 2 persons. Weapon used: broken bottle.
+CASE-robbery-042,robbery,Street robbery near Indiranagar. Perpetrator fled on foot with stolen mobile phone.
+CASE-fraud-042,fraud,Online fraud case. Victim transferred Rs. 120735 to fake account purporting to be online store.
+CASE-homicide-042,homicide,Suspicious death at MG Road. Forensic analysis inconclusive.
+CASE-theft-043,theft,Suspect stole jewelry from BTM Layout at daytime. CCTV footage shows severe.
+CASE-assault-043,assault,Physical altercation at Electronic City involving 2 persons. Weapon used: broken bottle.
+CASE-robbery-043,robbery,Street robbery near Yelahanka. Perpetrator fled on foot with stolen mobile phone.
+CASE-fraud-043,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 17014 detected.
+CASE-homicide-043,homicide,Suspicious death at Yelahanka. Forensic analysis matching suspect DNA found.
+CASE-theft-044,theft,Suspect stole wallet from Indiranagar at night. CCTV footage shows severe.
+CASE-assault-044,assault,Assault and battery case. Victim treated for severe injuries at local hospital.
+CASE-robbery-044,robbery,Armed robbery at Electronic City. Suspects brandished baseball bat and demanded valuables.
+CASE-fraud-044,fraud,Credit card skimming at Jayanagar. 2 suspects involved in operation.
+CASE-homicide-044,homicide,Suspicious death at Indiranagar. Forensic analysis inconclusive.
+CASE-theft-045,theft,Complainant reported missing cash from Whitefield. Investigation ongoing.
+CASE-assault-045,assault,Physical altercation at Yelahanka involving 1 persons. Weapon used: baseball bat.
+CASE-robbery-045,robbery,Armed robbery at Marathahalli. Suspects brandished baseball bat and demanded valuables.
+CASE-fraud-045,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 378844 detected.
+CASE-homicide-045,homicide,Homicide investigation at Whitefield. Victim identified as a 35-year-old male.
+CASE-theft-046,theft,Suspect stole jewelry from Koramangala at night. CCTV footage shows critical.
+CASE-assault-046,assault,Assault and battery case. Victim treated for moderate injuries at local hospital.
+CASE-robbery-046,robbery,Chain snatching incident at Electronic City. Suspect approached on motorcycle.
+CASE-fraud-046,fraud,Credit card skimming at Indiranagar. 2 suspects involved in operation.
+CASE-homicide-046,homicide,Suspicious death at Yelahanka. Forensic analysis inconclusive.
+CASE-theft-047,theft,Suspect stole wallet from Whitefield at evening. CCTV footage shows minor.
+CASE-assault-047,assault,Victim was attacked near Whitefield by 1 suspects. moderate injuries reported.
+CASE-robbery-047,robbery,Armed robbery at Indiranagar. Suspects brandished broken bottle and demanded valuables.
+CASE-fraud-047,fraud,Identity theft reported. Fraudulent transactions totalling Rs. 45936 detected.
+CASE-homicide-047,homicide,Suspicious death at Koramangala. Forensic analysis indicates foul play.
+CASE-theft-048,theft,Burglary at Whitefield. Perpetrator entered through main door and stole cash.
+CASE-assault-048,assault,Victim was attacked near Koramangala by 2 suspects. moderate injuries reported.
+CASE-robbery-048,robbery,Chain snatching incident at Indiranagar. Suspect approached on motorcycle.
+CASE-fraud-048,fraud,Online fraud case. Victim transferred Rs. 17052 to fake account purporting to be government agency.
+CASE-homicide-048,homicide,Homicide investigation at Koramangala. Victim identified as a 35-year-old male.
+CASE-theft-049,theft,Complainant reported missing mobile phone from Whitefield. Investigation ongoing.
+CASE-assault-049,assault,Physical altercation at Jayanagar involving 1 persons. Weapon used: knife.
+CASE-robbery-049,robbery,Street robbery near MG Road. Perpetrator fled on foot with stolen mobile phone.
+CASE-fraud-049,fraud,Online fraud case. Victim transferred Rs. 31111 to fake account purporting to be online store.
+CASE-homicide-049,homicide,Homicide investigation at Electronic City. Victim identified as a 45-year-old male.

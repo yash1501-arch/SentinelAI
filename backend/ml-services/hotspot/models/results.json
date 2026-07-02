@@ -1,0 +1,522 @@
+{
+  "n_clusters": 39,
+  "n_noise_points": 667,
+  "silhouette_score": 0.0006,
+  "clusters": [
+    {
+      "cluster_id": 1,
+      "center_lat": 12.986979,
+      "center_lon": 77.610659,
+      "density": 472,
+      "radius_meters": 2128.12,
+      "crime_type_distribution": {
+        "theft": 0.288,
+        "assault": 0.231,
+        "robbery": 0.161,
+        "burglary": 0.138,
+        "fraud": 0.129,
+        "homicide": 0.053
+      }
+    },
+    {
+      "cluster_id": 0,
+      "center_lat": 12.936594,
+      "center_lon": 77.560861,
+      "density": 234,
+      "radius_meters": 1352.82,
+      "crime_type_distribution": {
+        "theft": 0.308,
+        "assault": 0.231,
+        "robbery": 0.162,
+        "burglary": 0.124,
+        "fraud": 0.12,
+        "homicide": 0.056
+      }
+    },
+    {
+      "cluster_id": 4,
+      "center_lat": 12.92717,
+      "center_lon": 77.629951,
+      "density": 165,
+      "radius_meters": 1245.72,
+      "crime_type_distribution": {
+        "theft": 0.291,
+        "assault": 0.206,
+        "burglary": 0.182,
+        "robbery": 0.158,
+        "fraud": 0.097,
+        "homicide": 0.067
+      }
+    },
+    {
+      "cluster_id": 3,
+      "center_lat": 12.959246,
+      "center_lon": 77.640666,
+      "density": 146,
+      "radius_meters": 1313.06,
+      "crime_type_distribution": {
+        "theft": 0.342,
+        "assault": 0.205,
+        "burglary": 0.137,
+        "robbery": 0.13,
+        "fraud": 0.123,
+        "homicide": 0.062
+      }
+    },
+    {
+      "cluster_id": 12,
+      "center_lat": 13.003548,
+      "center_lon": 77.606813,
+      "density": 30,
+      "radius_meters": 606.18,
+      "crime_type_distribution": {
+        "assault": 0.3,
+        "burglary": 0.233,
+        "theft": 0.233,
+        "fraud": 0.133,
+        "robbery": 0.067,
+        "homicide": 0.033
+      }
+    },
+    {
+      "cluster_id": 2,
+      "center_lat": 12.953069,
+      "center_lon": 77.63658,
+      "density": 24,
+      "radius_meters": 470.31,
+      "crime_type_distribution": {
+        "assault": 0.292,
+        "theft": 0.25,
+        "robbery": 0.208,
+        "fraud": 0.125,
+        "burglary": 0.083,
+        "homicide": 0.042
+      }
+    },
+    {
+      "cluster_id": 8,
+      "center_lat": 13.002742,
+      "center_lon": 77.600315,
+      "density": 18,
+      "radius_meters": 512.46,
+      "crime_type_distribution": {
+        "theft": 0.278,
+        "assault": 0.222,
+        "robbery": 0.222,
+        "fraud": 0.222,
+        "burglary": 0.056
+      }
+    },
+    {
+      "cluster_id": 10,
+      "center_lat": 12.9399,
+      "center_lon": 77.634069,
+      "density": 18,
+      "radius_meters": 411.95,
+      "crime_type_distribution": {
+        "theft": 0.333,
+        "robbery": 0.222,
+        "burglary": 0.111,
+        "fraud": 0.111,
+        "homicide": 0.111,
+        "assault": 0.111
+      }
+    },
+    {
+      "cluster_id": 6,
+      "center_lat": 12.922781,
+      "center_lon": 77.638304,
+      "density": 15,
+      "radius_meters": 377.01,
+      "crime_type_distribution": {
+        "theft": 0.4,
+        "robbery": 0.2,
+        "fraud": 0.2,
+        "burglary": 0.133,
+        "assault": 0.067
+      }
+    },
+    {
+      "cluster_id": 7,
+      "center_lat": 12.999571,
+      "center_lon": 77.59547,
+      "density": 15,
+      "radius_meters": 385.93,
+      "crime_type_distribution": {
+        "assault": 0.4,
+        "fraud": 0.2,
+        "theft": 0.2,
+        "burglary": 0.133,
+        "robbery": 0.067
+      }
+    },
+    {
+      "cluster_id": 11,
+      "center_lat": 12.971512,
+      "center_lon": 77.620216,
+      "density": 13,
+      "radius_meters": 304.02,
+      "crime_type_distribution": {
+        "theft": 0.462,
+        "burglary": 0.231,
+        "robbery": 0.231,
+        "fraud": 0.077
+      }
+    },
+    {
+      "cluster_id": 22,
+      "center_lat": 12.969061,
+      "center_lon": 77.641298,
+      "density": 10,
+      "radius_meters": 323.17,
+      "crime_type_distribution": {
+        "assault": 0.3,
+        "burglary": 0.3,
+        "theft": 0.3,
+        "robbery": 0.1
+      }
+    },
+    {
+      "cluster_id": 27,
+      "center_lat": 12.937161,
+      "center_lon": 77.628971,
+      "density": 10,
+      "radius_meters": 280.84,
+      "crime_type_distribution": {
+        "assault": 0.3,
+        "theft": 0.2,
+        "robbery": 0.2,
+        "fraud": 0.1,
+        "homicide": 0.1,
+        "burglary": 0.1
+      }
+    },
+    {
+      "cluster_id": 14,
+      "center_lat": 12.937851,
+      "center_lon": 77.639601,
+      "density": 9,
+      "radius_meters": 313.94,
+      "crime_type_distribution": {
+        "theft": 0.444,
+        "fraud": 0.222,
+        "burglary": 0.111,
+        "assault": 0.111,
+        "robbery": 0.111
+      }
+    },
+    {
+      "cluster_id": 18,
+      "center_lat": 12.921658,
+      "center_lon": 77.624966,
+      "density": 9,
+      "radius_meters": 242.23,
+      "crime_type_distribution": {
+        "theft": 0.333,
+        "robbery": 0.333,
+        "burglary": 0.111,
+        "fraud": 0.111,
+        "assault": 0.111
+      }
+    },
+    {
+      "cluster_id": 21,
+      "center_lat": 12.933258,
+      "center_lon": 77.637918,
+      "density": 9,
+      "radius_meters": 284.43,
+      "crime_type_distribution": {
+        "theft": 0.667,
+        "assault": 0.222,
+        "robbery": 0.111
+      }
+    },
+    {
+      "cluster_id": 25,
+      "center_lat": 12.945945,
+      "center_lon": 77.636334,
+      "density": 9,
+      "radius_meters": 277.99,
+      "crime_type_distribution": {
+        "assault": 0.333,
+        "robbery": 0.222,
+        "theft": 0.222,
+        "fraud": 0.111,
+        "homicide": 0.111
+      }
+    },
+    {
+      "cluster_id": 28,
+      "center_lat": 12.972129,
+      "center_lon": 77.636399,
+      "density": 9,
+      "radius_meters": 261.98,
+      "crime_type_distribution": {
+        "theft": 0.444,
+        "fraud": 0.111,
+        "robbery": 0.111,
+        "burglary": 0.111,
+        "homicide": 0.111,
+        "assault": 0.111
+      }
+    },
+    {
+      "cluster_id": 16,
+      "center_lat": 12.942225,
+      "center_lon": 77.548499,
+      "density": 8,
+      "radius_meters": 270.49,
+      "crime_type_distribution": {
+        "fraud": 0.375,
+        "assault": 0.25,
+        "theft": 0.25,
+        "burglary": 0.125
+      }
+    },
+    {
+      "cluster_id": 19,
+      "center_lat": 12.930791,
+      "center_lon": 77.640737,
+      "density": 8,
+      "radius_meters": 238.41,
+      "crime_type_distribution": {
+        "assault": 0.375,
+        "burglary": 0.375,
+        "robbery": 0.25
+      }
+    },
+    {
+      "cluster_id": 20,
+      "center_lat": 12.972614,
+      "center_lon": 77.609337,
+      "density": 8,
+      "radius_meters": 200.45,
+      "crime_type_distribution": {
+        "assault": 0.5,
+        "burglary": 0.25,
+        "theft": 0.125,
+        "robbery": 0.125
+      }
+    },
+    {
+      "cluster_id": 9,
+      "center_lat": 12.930343,
+      "center_lon": 77.550409,
+      "density": 7,
+      "radius_meters": 144.93,
+      "crime_type_distribution": {
+        "assault": 0.286,
+        "homicide": 0.286,
+        "burglary": 0.286,
+        "theft": 0.143
+      }
+    },
+    {
+      "cluster_id": 23,
+      "center_lat": 12.96927,
+      "center_lon": 77.645288,
+      "density": 7,
+      "radius_meters": 192.57,
+      "crime_type_distribution": {
+        "robbery": 0.286,
+        "fraud": 0.286,
+        "theft": 0.143,
+        "burglary": 0.143,
+        "assault": 0.143
+      }
+    },
+    {
+      "cluster_id": 26,
+      "center_lat": 12.967144,
+      "center_lon": 77.636646,
+      "density": 7,
+      "radius_meters": 219.19,
+      "crime_type_distribution": {
+        "theft": 0.571,
+        "robbery": 0.143,
+        "burglary": 0.143,
+        "fraud": 0.143
+      }
+    },
+    {
+      "cluster_id": 32,
+      "center_lat": 12.947208,
+      "center_lon": 77.549565,
+      "density": 7,
+      "radius_meters": 203.84,
+      "crime_type_distribution": {
+        "robbery": 0.429,
+        "burglary": 0.286,
+        "theft": 0.286
+      }
+    },
+    {
+      "cluster_id": 24,
+      "center_lat": 12.935806,
+      "center_lon": 77.624007,
+      "density": 6,
+      "radius_meters": 171.86,
+      "crime_type_distribution": {
+        "theft": 0.5,
+        "robbery": 0.333,
+        "fraud": 0.167
+      }
+    },
+    {
+      "cluster_id": 5,
+      "center_lat": 12.926684,
+      "center_lon": 77.554622,
+      "density": 5,
+      "radius_meters": 107.44,
+      "crime_type_distribution": {
+        "burglary": 0.4,
+        "homicide": 0.2,
+        "theft": 0.2,
+        "fraud": 0.2
+      }
+    },
+    {
+      "cluster_id": 15,
+      "center_lat": 12.961247,
+      "center_lon": 77.626118,
+      "density": 5,
+      "radius_meters": 206.41,
+      "crime_type_distribution": {
+        "theft": 0.6,
+        "robbery": 0.2,
+        "burglary": 0.2
+      }
+    },
+    {
+      "cluster_id": 29,
+      "center_lat": 12.976987,
+      "center_lon": 77.640159,
+      "density": 5,
+      "radius_meters": 158.36,
+      "crime_type_distribution": {
+        "theft": 0.8,
+        "assault": 0.2
+      }
+    },
+    {
+      "cluster_id": 30,
+      "center_lat": 12.95003,
+      "center_lon": 77.642863,
+      "density": 5,
+      "radius_meters": 170.78,
+      "crime_type_distribution": {
+        "theft": 0.6,
+        "burglary": 0.2,
+        "robbery": 0.2
+      }
+    },
+    {
+      "cluster_id": 31,
+      "center_lat": 12.968014,
+      "center_lon": 77.61171,
+      "density": 5,
+      "radius_meters": 182.7,
+      "crime_type_distribution": {
+        "theft": 0.4,
+        "robbery": 0.2,
+        "fraud": 0.2,
+        "assault": 0.2
+      }
+    },
+    {
+      "cluster_id": 33,
+      "center_lat": 12.942568,
+      "center_lon": 77.630216,
+      "density": 5,
+      "radius_meters": 186.33,
+      "crime_type_distribution": {
+        "fraud": 0.4,
+        "burglary": 0.4,
+        "homicide": 0.2
+      }
+    },
+    {
+      "cluster_id": 34,
+      "center_lat": 12.961789,
+      "center_lon": 77.6531,
+      "density": 5,
+      "radius_meters": 177.26,
+      "crime_type_distribution": {
+        "assault": 0.8,
+        "burglary": 0.2
+      }
+    },
+    {
+      "cluster_id": 35,
+      "center_lat": 12.949701,
+      "center_lon": 77.639052,
+      "density": 5,
+      "radius_meters": 124.33,
+      "crime_type_distribution": {
+        "assault": 0.4,
+        "burglary": 0.2,
+        "robbery": 0.2,
+        "fraud": 0.2
+      }
+    },
+    {
+      "cluster_id": 37,
+      "center_lat": 12.928488,
+      "center_lon": 77.620537,
+      "density": 5,
+      "radius_meters": 177.09,
+      "crime_type_distribution": {
+        "homicide": 0.6,
+        "burglary": 0.2,
+        "fraud": 0.2
+      }
+    },
+    {
+      "cluster_id": 38,
+      "center_lat": 12.934015,
+      "center_lon": 77.617458,
+      "density": 5,
+      "radius_meters": 152.17,
+      "crime_type_distribution": {
+        "theft": 0.6,
+        "fraud": 0.2,
+        "robbery": 0.2
+      }
+    },
+    {
+      "cluster_id": 36,
+      "center_lat": 12.955558,
+      "center_lon": 77.650563,
+      "density": 4,
+      "radius_meters": 104.25,
+      "crime_type_distribution": {
+        "robbery": 0.5,
+        "assault": 0.25,
+        "fraud": 0.25
+      }
+    },
+    {
+      "cluster_id": 13,
+      "center_lat": 12.939326,
+      "center_lon": 77.550988,
+      "density": 3,
+      "radius_meters": 84.48,
+      "crime_type_distribution": {
+        "fraud": 0.667,
+        "robbery": 0.333
+      }
+    },
+    {
+      "cluster_id": 17,
+      "center_lat": 12.957214,
+      "center_lon": 77.633801,
+      "density": 3,
+      "radius_meters": 90.61,
+      "crime_type_distribution": {
+        "theft": 0.333,
+        "homicide": 0.333,
+        "assault": 0.333
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "risk_mse": 0.0027,
+  "risk_r2": 0.8908,
+  "recidivism_mse": 0.0026,
+  "recidivism_r2": 0.9368,
+  "escalation_accuracy": 0.818,
+  "archetype_accuracy": 0.267,
+  "shap_top_feature": "prior_cases"
+}

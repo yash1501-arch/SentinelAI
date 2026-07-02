@@ -9,7 +9,7 @@ import asyncio
 from pathlib import Path
 from loguru import logger
 
-ML_SERVICES_DIR = Path(__file__).resolve().parents[3] / "ml-services"
+ML_SERVICES_DIR = Path(__file__).resolve().parents[2] / "ml-services"
 sys.path.insert(0, str(ML_SERVICES_DIR))
 
 MODELS_DIR = ML_SERVICES_DIR / "hotspot" / "models"

@@ -1,0 +1,225 @@
+{
+  "r2_score": 0.3717,
+  "n_districts": 12,
+  "n_years": 7,
+  "correlations": {
+    "urbanization_rate": {
+      "pearson_r": 0.0485,
+      "p_value": 0.661395
+    },
+    "literacy_rate": {
+      "pearson_r": 0.0509,
+      "p_value": 0.645512
+    },
+    "poverty_rate": {
+      "pearson_r": 0.0262,
+      "p_value": 0.813252
+    },
+    "unemployment_rate": {
+      "pearson_r": -0.3273,
+      "p_value": 0.002371
+    },
+    "migration_rate": {
+      "pearson_r": -0.198,
+      "p_value": 0.070959
+    },
+    "juvenile_population_pct": {
+      "pearson_r": 0.0947,
+      "p_value": 0.391506
+    },
+    "police_per_capita": {
+      "pearson_r": 0.0827,
+      "p_value": 0.454676
+    },
+    "population_density": {
+      "pearson_r": -0.472,
+      "p_value": 6e-06
+    },
+    "avg_income": {
+      "pearson_r": 0.0315,
+      "p_value": 0.775929
+    }
+  },
+  "factor_importance": [
+    {
+      "factor": "population_density",
+      "coefficient": -37.4634
+    },
+    {
+      "factor": "unemployment_rate",
+      "coefficient": -27.3483
+    },
+    {
+      "factor": "migration_rate",
+      "coefficient": -13.9568
+    },
+    {
+      "factor": "juvenile_population_pct",
+      "coefficient": -12.589
+    },
+    {
+      "factor": "poverty_rate",
+      "coefficient": -5.5822
+    },
+    {
+      "factor": "literacy_rate",
+      "coefficient": 4.9447
+    },
+    {
+      "factor": "urbanization_rate",
+      "coefficient": -3.787
+    },
+    {
+      "factor": "avg_income",
+      "coefficient": 3.3341
+    },
+    {
+      "factor": "police_per_capita",
+      "coefficient": 2.6285
+    }
+  ],
+  "worst_performers": [
+    {
+      "district": "Shivamogga",
+      "year": 2022,
+      "crime_rate_per_100k": 348.19,
+      "urbanization_rate": 0.5,
+      "literacy_rate": 0.74,
+      "poverty_rate": 0.16,
+      "unemployment_rate": 0.06,
+      "migration_rate": 0.05,
+      "juvenile_population_pct": 0.17,
+      "police_per_capita": 1.95,
+      "population_density": 16132.97,
+      "avg_income": 68942.91
+    },
+    {
+      "district": "Shivamogga",
+      "year": 2024,
+      "crime_rate_per_100k": 339.28,
+      "urbanization_rate": 0.62,
+      "literacy_rate": 0.73,
+      "poverty_rate": 0.12,
+      "unemployment_rate": 0.07,
+      "migration_rate": 0.03,
+      "juvenile_population_pct": 0.17,
+      "police_per_capita": 2.11,
+      "population_density": 9808.24,
+      "avg_income": 68493.73
+    },
+    {
+      "district": "Bengaluru Rural",
+      "year": 2019,
+      "crime_rate_per_100k": 312.87,
+      "urbanization_rate": 0.35,
+      "literacy_rate": 0.71,
+      "poverty_rate": 0.17,
+      "unemployment_rate": 0.04,
+      "migration_rate": 0.06,
+      "juvenile_population_pct": 0.2,
+      "police_per_capita": 2.77,
+      "population_density": 3709.07,
+      "avg_income": 51006.81
+    },
+    {
+      "district": "Shivamogga",
+      "year": 2018,
+      "crime_rate_per_100k": 310.96,
+      "urbanization_rate": 0.34,
+      "literacy_rate": 0.7,
+      "poverty_rate": 0.19,
+      "unemployment_rate": 0.04,
+      "migration_rate": 0.03,
+      "juvenile_population_pct": 0.27,
+      "police_per_capita": 1.51,
+      "population_density": 3834.25,
+      "avg_income": 62693.46
+    },
+    {
+      "district": "Bengaluru Rural",
+      "year": 2018,
+      "crime_rate_per_100k": 307.89,
+      "urbanization_rate": 0.28,
+      "literacy_rate": 0.71,
+      "poverty_rate": 0.21,
+      "unemployment_rate": 0.07,
+      "migration_rate": 0.04,
+      "juvenile_population_pct": 0.17,
+      "police_per_capita": 3.28,
+      "population_density": 6550.96,
+      "avg_income": 45466.4
+    }
+  ],
+  "best_performers": [
+    {
+      "district": "Hubli-Dharwad",
+      "year": 2018,
+      "crime_rate_per_100k": 100.0,
+      "urbanization_rate": 0.28,
+      "literacy_rate": 0.72,
+      "poverty_rate": 0.21,
+      "unemployment_rate": 0.08,
+      "migration_rate": 0.03,
+      "juvenile_population_pct": 0.23,
+      "police_per_capita": 2.93,
+      "population_density": 11428.89,
+      "avg_income": 43282.38
+    },
+    {
+      "district": "Hubli-Dharwad",
+      "year": 2019,
+      "crime_rate_per_100k": 100.0,
+      "urbanization_rate": 0.32,
+      "literacy_rate": 0.7,
+      "poverty_rate": 0.18,
+      "unemployment_rate": 0.07,
+      "migration_rate": 0.07,
+      "juvenile_population_pct": 0.16,
+      "police_per_capita": 2.02,
+      "population_density": 14418.27,
+      "avg_income": 41409.66
+    },
+    {
+      "district": "Hubli-Dharwad",
+      "year": 2020,
+      "crime_rate_per_100k": 100.0,
+      "urbanization_rate": 0.38,
+      "literacy_rate": 0.71,
+      "poverty_rate": 0.2,
+      "unemployment_rate": 0.04,
+      "migration_rate": 0.06,
+      "juvenile_population_pct": 0.23,
+      "police_per_capita": 2.24,
+      "population_density": 16233.43,
+      "avg_income": 54659.91
+    },
+    {
+      "district": "Hubli-Dharwad",
+      "year": 2021,
+      "crime_rate_per_100k": 100.0,
+      "urbanization_rate": 0.41,
+      "literacy_rate": 0.7,
+      "poverty_rate": 0.14,
+      "unemployment_rate": 0.06,
+      "migration_rate": 0.01,
+      "juvenile_population_pct": 0.28,
+      "police_per_capita": 1.57,
+      "population_density": 9555.19,
+      "avg_income": 53083.67
+    },
+    {
+      "district": "Hubli-Dharwad",
+      "year": 2022,
+      "crime_rate_per_100k": 100.0,
+      "urbanization_rate": 0.48,
+      "literacy_rate": 0.72,
+      "poverty_rate": 0.19,
+      "unemployment_rate": 0.07,
+      "migration_rate": 0.07,
+      "juvenile_population_pct": 0.19,
+      "police_per_capita": 1.6,
+      "population_density": 9079.4,
+      "avg_income": 64474.98
+    }
+  ]
+}
