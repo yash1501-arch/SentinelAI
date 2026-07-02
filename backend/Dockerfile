@@ -1,4 +1,4 @@
-FROM python:3.13-slim AS builder
+FROM python:3.12-slim AS builder
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential gcc g++ cmake libgomp1 libpq-dev && \
@@ -9,7 +9,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir setuptools wheel && \
     pip install --no-cache-dir --user -r requirements.txt
 
-FROM python:3.13-slim
+FROM python:3.12-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libgomp1 libgcc-s1 libpq5 && \
