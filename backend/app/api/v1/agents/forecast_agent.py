@@ -45,6 +45,10 @@ class ForecastAgent:
             # Try to get Prophet model predictions
             ml_forecast = await self._get_ml_forecast()
 
+            # Gang activity forecast
+            gang_forecast = await self._get_gang_forecast(state["query"])
+            historical_data["gang_forecast"] = gang_forecast
+
             response = await client.chat.completions.create(
                 model=settings.OPENAI_MODEL,
                 messages=[
@@ -59,13 +63,42 @@ class ForecastAgent:
             )
 
             raw = response.choices[0].message.content.strip()
-            if raw.startswith("```"):
-                raw = raw.split("```")[1]
-                if raw.startswith("json"):
-                    raw = raw[4:]
-                raw = raw.strip()
-
-            result = json.loads(raw)
+            try:
+                import re
+                match = re.search(r"(\{.*\})", raw, re.DOTALL)
+                raw_json = match.group(1) if match else raw
+                cleaned = []
+                in_string = False
+                escape = False
+                for char in raw_json:
+                    if char == '"' and not escape:
+                        in_string = not in_string
+                        cleaned.append(char)
+                    elif char == '\\' and in_string and not escape:
+                        escape = True
+                        cleaned.append(char)
+                    else:
+                        if char == '\n' and in_string:
+                            cleaned.append('\\n')
+                        elif char == '\r' and in_string:
+                            cleaned.append('\\r')
+                        else:
+                            cleaned.append(char)
+                        escape = False
+                result = json.loads("".join(cleaned))
+            except Exception as e:
+                import traceback
+                traceback.print_exc()
+                result = {
+                    "trend_direction": "stable",
+                    "trend_magnitude": "slight",
+                    "predicted_hotspots": [],
+                    "seasonal_patterns": [],
+                    "confidence_level": 0.5,
+                    "key_insights": [f"Could not parse model output: {str(e)}"],
+                    "alert_recommendation": "none",
+                    "forecast_data": []
+                }
 
             # Merge ML forecast data into result if available
             if ml_forecast and ml_forecast.get("predictions"):
@@ -96,6 +129,41 @@ class ForecastAgent:
         except Exception:
             pass
         return {}
+
+    async def _get_gang_forecast(self, query: str) -> dict:
+        try:
+            async with async_session_factory() as session:
+                sql = text("""
+                    SELECT
+                        g.name as gang_name,
+                        COUNT(DISTINCT ci.id) as incident_count,
+                        COUNT(DISTINCT a.person_id) as member_count,
+                        MIN(ci.incident_date) as first_seen,
+                        MAX(ci.incident_date) as last_seen,
+                        STRING_AGG(DISTINCT ct.name, ', ') as crime_types
+                    FROM gangs g
+                    JOIN gang_members gm ON g.id = gm.gang_id
+                    JOIN accused a ON gm.person_id = a.person_id
+                    JOIN crime_incidents ci ON a.incident_id = ci.id
+                    JOIN crime_types ct ON ci.crime_type_id = ct.id
+                    WHERE ci.incident_date >= CURRENT_DATE - INTERVAL '12 months'
+                    GROUP BY g.id, g.name
+                    ORDER BY incident_count DESC
+                    LIMIT 10
+                """)
+                result = await session.execute(sql)
+                rows = [dict(r._mapping) for r in result]
+
+                for row in rows:
+                    if row.get("last_seen") and row.get("first_seen"):
+                        delta = (row["last_seen"] - row["first_seen"]).days
+                        row["active_days"] = delta
+                        row["escalation_score"] = round(
+                            min(1.0, (row["incident_count"] / max(row["member_count"], 1)) * 0.3 + 0.1), 4
+                        )
+                return {"gangs": rows, "total_gangs": len(rows)}
+        except Exception:
+            return {"gangs": [], "total_gangs": 0}
 
     async def _get_historical_data(self, query: str) -> dict:
         async with async_session_factory() as session:

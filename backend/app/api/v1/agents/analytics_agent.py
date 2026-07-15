@@ -1,5 +1,4 @@
 import time
-from datetime import datetime, timezone, timedelta
 from sqlalchemy import text
 from app.core.database import async_session_factory
 from app.llm.state import AgentState
@@ -51,12 +50,12 @@ class AnalyticsAgent:
                     COUNT(*) as count
                 FROM crime_incidents ci
                 JOIN crime_types ct ON ci.crime_type_id = ct.id
-                WHERE ci.incident_date >= CURRENT_DATE - INTERVAL ':months months'
+                WHERE ci.incident_date >= CURRENT_DATE - (CAST(:months AS INTEGER) * INTERVAL '1 month')
                 GROUP BY month, ct.name
                 ORDER BY month DESC, count DESC
                 LIMIT 50
             """)
-            result = await session.execute(sql.bindparams(months=str(months)))
+            result = await session.execute(sql.bindparams(months=int(months)))
             return [dict(row._mapping) for row in result]
 
     async def _get_hotspots(self, query: str) -> list:

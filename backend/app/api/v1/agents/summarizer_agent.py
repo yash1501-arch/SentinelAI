@@ -2,7 +2,7 @@ import time
 import json
 from app.core.config import settings
 from app.services.openai_client import create_openai_client
-from app.llm.state import AgentState, IntentType
+from app.llm.state import AgentState
 
 client = create_openai_client()
 
@@ -72,9 +72,9 @@ class SummarizerAgent:
                         sql_result=self._format_result(state.get("sql_result", [])),
                         graph_result=self._format_result(state.get("graph_result", [])),
                         rag_result=self._format_result(state.get("rag_result", [])),
-                        analytics_result=json.dumps(state.get("analytics_result", {}), indent=2)[:2000],
-                        profiling_result=json.dumps(state.get("profiling_result", {}), indent=2)[:2000],
-                        forecast_result=json.dumps(state.get("forecast_result", {}), indent=2)[:2000],
+                        analytics_result=json.dumps(state.get("analytics_result", {}), indent=2, default=str)[:2000],
+                        profiling_result=json.dumps(state.get("profiling_result", {}), indent=2, default=str)[:2000],
+                        forecast_result=json.dumps(state.get("forecast_result", {}), indent=2, default=str)[:2000],
                         reasoning_chain="\n".join(state.get("reasoning_chain", [])),
                         language=state.get("language", "English"),
                     )},
@@ -84,29 +84,66 @@ class SummarizerAgent:
             )
 
             raw = response.choices[0].message.content.strip()
-            # Handle markdown-wrapped JSON
-            if raw.startswith("```"):
-                raw = raw.split("```")[1]
-                if raw.startswith("json"):
-                    raw = raw[4:]
-                raw = raw.strip()
-
-            result = json.loads(raw)
+            try:
+                import re
+                match = re.search(r"(\{.*\})", raw, re.DOTALL)
+                raw_json = match.group(1) if match else raw
+                cleaned = []
+                in_string = False
+                escape = False
+                for char in raw_json:
+                    if char == '"' and not escape:
+                        in_string = not in_string
+                        cleaned.append(char)
+                    elif char == '\\' and in_string and not escape:
+                        escape = True
+                        cleaned.append(char)
+                    else:
+                        if char == '\n' and in_string:
+                            cleaned.append('\\n')
+                        elif char == '\r' and in_string:
+                            cleaned.append('\\r')
+                        else:
+                            cleaned.append(char)
+                        escape = False
+                result = json.loads("".join(cleaned))
+            except Exception as e:
+                import traceback
+                traceback.print_exc()
+                result = {
+                    "response": raw if 'raw' in locals() else f"I could not summarize the results correctly: {str(e)}",
+                    "sources": [],
+                    "confidence_score": 0.5,
+                    "suggested_questions": []
+                }
             state["response"] = result.get("response", "")
             state["sources"] = result.get("sources", [])
             state["confidence_score"] = float(result.get("confidence_score", 0.5))
-            state["reasoning_chain"].append(f"Summarizer generated final response")
+            state["reasoning_chain"].append("Summarizer generated final response")
 
             follow_ups = result.get("suggested_questions", [])
             if follow_ups:
                 state["response"] += "\n\n**Suggested follow-ups:**\n" + "\n".join(
-                    [f"- {q}" for q in follow_ups[:3]]
+                    [f"- {q}" for q in follow_ups]
                 )
 
         except Exception as e:
-            state["response"] = self._fallback_response(state)
-            state["confidence_score"] = 0.5
+            import traceback
+            traceback.print_exc()
             state["reasoning_chain"].append(f"Summarizer fallback: {str(e)}")
+            state["response"] = f"Based on the analysis of your query: **{state['query']}**\n\n"
+            if state.get("sql_result"):
+                state["response"] += f"- SQL result: {len(state['sql_result'])} records found.\n"
+            if state.get("graph_result"):
+                state["response"] += f"- Graph result: {len(state['graph_result'])} records found.\n"
+            if state.get("rag_result"):
+                state["response"] += f"- RAG search: {len(state['rag_result'])} relevant documents found.\n"
+            if state.get("analytics_result"):
+                state["response"] += "- Pattern analysis completed.\n"
+            if state.get("profiling_result") and "archetype" in state["profiling_result"]:
+                state["response"] += f"- Offender profile: {state['profiling_result'].get('archetype')} - Risk: {state['profiling_result'].get('risk_level')}\n"
+            if state.get("forecast_result") and "trend_direction" in state["forecast_result"]:
+                state["response"] += f"- Forecast: {state['forecast_result'].get('trend_direction')} trend with {state['forecast_result'].get('confidence_level')} confidence.\n"
 
         state["processing_time_ms"] = int((time.time() - start) * 1000)
         return state

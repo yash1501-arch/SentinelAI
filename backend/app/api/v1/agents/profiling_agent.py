@@ -76,12 +76,41 @@ class ProfilingAgent:
                         max_tokens=500,
                     )
                     raw = response.choices[0].message.content.strip()
-                    if raw.startswith("```"):
-                        raw = raw.split("```")[1]
-                        if raw.startswith("json"):
-                            raw = raw[4:]
-                        raw = raw.strip()
-                    result = json.loads(raw)
+                    try:
+                        import re
+                        match = re.search(r"(\{.*\})", raw, re.DOTALL)
+                        raw_json = match.group(1) if match else raw
+                        cleaned = []
+                        in_string = False
+                        escape = False
+                        for char in raw_json:
+                            if char == '"' and not escape:
+                                in_string = not in_string
+                                cleaned.append(char)
+                            elif char == '\\' and in_string and not escape:
+                                escape = True
+                                cleaned.append(char)
+                            else:
+                                if char == '\n' and in_string:
+                                    cleaned.append('\\n')
+                                elif char == '\r' and in_string:
+                                    cleaned.append('\\r')
+                                else:
+                                    cleaned.append(char)
+                                escape = False
+                        result = json.loads("".join(cleaned))
+                    except Exception as e:
+                        import traceback
+                        traceback.print_exc()
+                        result = {
+                            "archetype": "Unknown",
+                            "risk_level": "Medium",
+                            "risk_score": 0.5,
+                            "recidivism_probability": 0.5,
+                            "escalation_risk": "Medium",
+                            "behavioral_patterns": ["Unknown patterns"],
+                            "profile_summary": f"Could not parse profiling response: {str(e)}"
+                        }
                     result["model_used"] = "LLM"
                     state["profiling_result"] = result
                     state["reasoning_chain"].append(
@@ -151,7 +180,23 @@ class ProfilingAgent:
         return patterns or ["Data-driven assessment"]
 
     async def _extract_person_id(self, query: str) -> str:
-        return query
+        prompt = f"""Extract the person name, phone number, aadhaar number, case ID, or person ID from the following query. 
+If none is specified, return "unknown".
+Return ONLY the extracted identifier, nothing else.
+
+Query: {query}"""
+        try:
+            response = await client.chat.completions.create(
+                model=settings.OPENAI_MODEL,
+                messages=[{"role": "system", "content": prompt}],
+                temperature=0.0,
+                max_tokens=50,
+            )
+            extracted = response.choices[0].message.content.strip()
+            extracted = extracted.replace('"', '').replace("'", '').strip()
+            return extracted
+        except Exception:
+            return query
 
     async def _get_offender_data(self, person_id: str) -> dict:
         async with async_session_factory() as session:
@@ -168,10 +213,17 @@ class ProfilingAgent:
                 LEFT JOIN accused a ON p.id = a.person_id
                 LEFT JOIN crime_incidents ci ON a.incident_id = ci.id
                 LEFT JOIN crime_types ct ON ci.crime_type_id = ct.id
-                WHERE p.id = :pid OR p.phone = :pid OR p.aadhaar_number = :pid
+                LEFT JOIN firs f ON ci.fir_id = f.id
+                WHERE CAST(p.id AS VARCHAR) = :pid 
+                   OR p.phone = :pid 
+                   OR p.aadhaar_number = :pid
+                   OR p.first_name ILIKE :name
+                   OR p.last_name ILIKE :name
+                   OR (p.first_name || ' ' || p.last_name) ILIKE :name
+                   OR f.fir_number ILIKE :name
                 GROUP BY p.id, p.first_name, p.last_name, p.gender, p.date_of_birth,
                          p.occupation, p.education_level
             """)
-            result = await session.execute(sql.bindparams(pid=person_id))
+            result = await session.execute(sql.bindparams(pid=person_id, name=f"%{person_id}%"))
             row = result.fetchone()
             return dict(row._mapping) if row else {}

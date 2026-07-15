@@ -2,10 +2,7 @@
 import os
 import json
 import pickle
-import pandas as pd
-import numpy as np
 from prophet import Prophet
-from prophet.diagnostics import cross_validation, performance_metrics
 from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error
 
 from .data import generate_daily_crime_data
@@ -39,8 +36,8 @@ def train(periods: int = 90, save: bool = True) -> dict:
 
     y_true = df_test["y"].values
     y_pred = forecast["yhat"].values
-    y_lower = forecast["yhat_lower"].values
-    y_upper = forecast["yhat_upper"].values
+    forecast["yhat_lower"].values
+    forecast["yhat_upper"].values
 
     mae = mean_absolute_error(y_true, y_pred)
     mape = mean_absolute_percentage_error(y_true, y_pred)

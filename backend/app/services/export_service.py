@@ -1,17 +1,16 @@
 import io
 import csv
-import uuid
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from typing import Optional
 
 from reportlab.lib.pagesizes import A4
-from reportlab.lib.units import inch, mm
+from reportlab.lib.units import mm
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.colors import HexColor
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib import colors
 
-from app.core.synthetic_data import generate_cases, generate_statistics, generate_trends
+from app.core.synthetic_data import generate_cases, generate_statistics
 
 def generate_csv(resource_type: str, resource_ids: Optional[list[str]] = None) -> bytes:
     output = io.StringIO()
@@ -56,8 +55,6 @@ def generate_pdf(session_id: str, case_ids: Optional[list[str]] = None,
     heading_style = ParagraphStyle("Heading2", parent=styles["Heading2"],
                                     fontSize=14, textColor=HexColor("#283593"),
                                     spaceAfter=4, spaceBefore=12)
-    normal_style = ParagraphStyle("Normal2", parent=styles["Normal"],
-                                   fontSize=10, leading=14)
     small_style = ParagraphStyle("Small2", parent=styles["Normal"],
                                   fontSize=8, textColor=HexColor("#666666"))
 

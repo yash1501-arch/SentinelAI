@@ -5,13 +5,10 @@ These models align with the official Police_FIR_ER_Diagram.pdf
 provided by hackathon organizers. They work alongside the existing
 models to provide the official data structure.
 """
-import uuid
-from datetime import datetime, timezone, date
 from sqlalchemy import (
     Column, String, Boolean, DateTime, Date, Text, Integer,
-    Float, ForeignKey, Table, Numeric,
+    Float, ForeignKey,
 )
-from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
 from app.core.database import Base

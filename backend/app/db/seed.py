@@ -1,4 +1,3 @@
-import uuid
 import random
 from datetime import datetime, timezone, timedelta, date, time
 from sqlalchemy import select
@@ -7,8 +6,7 @@ from app.core.security import get_password_hash
 from app.models.user import User, Role, Permission, RolePermission
 from app.models.crime import (
     CrimeType, CrimeCategory, FIR, CrimeIncident, Victim, Accused, Witness,
-    Person, Location, Evidence, InvestigationStatus, InvestigationStatusEnum,
-    EvidenceType, CaseNote, GenderEnum,
+    Person, Location, Evidence, InvestigationStatus, EvidenceType, CaseNote, GenderEnum,
 )
 from app.models.analytics import CrimeHotspot, SocialIndicator, CaseForecast, OffenderProfile
 from app.models.associations import user_roles

@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error, accuracy_score, r2_score
 from xgboost import XGBClassifier, XGBRegressor
 import shap
 
-from .data import generate_dataset, split_data, OFFENDER_ARCHETYPES, RISK_LEVELS
+from .data import generate_dataset, split_data
 
 MODELS_DIR = os.path.join(os.path.dirname(__file__), "models")
 os.makedirs(MODELS_DIR, exist_ok=True)

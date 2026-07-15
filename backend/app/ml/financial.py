@@ -4,7 +4,6 @@ Financial fraud detection using Isolation Forest + XGBoost.
 Wraps the ml-services/financial module for use within the FastAPI backend.
 """
 import sys
-import json
 import asyncio
 from pathlib import Path
 from loguru import logger

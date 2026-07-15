@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 from typing import Optional
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from app.core.database import get_db
-from app.core.dependencies import get_current_user, require_role
+from app.core.dependencies import require_role
 from app.core.config import settings
 from app.core.security import get_password_hash
-from app.models.user import User, Role, Permission
+from app.models.user import User, Role
 from app.models.analytics import AuditLog
 from app.schemas.user import UserRead, RoleRead
 from app.schemas.analytics import AuditLogRead

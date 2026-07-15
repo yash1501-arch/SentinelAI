@@ -3,15 +3,14 @@ Smart Alerts endpoint — generates AI-driven alerts from forecasts,
 pattern matching, and network anomalies.
 """
 
-import uuid
 from datetime import datetime, timezone, timedelta
 from fastapi import APIRouter, Depends, Query
-from sqlalchemy import select, func, desc
+from sqlalchemy import select, desc
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.database import get_db
 from app.core.dependencies import get_current_user
 from app.models.user import User
-from app.models.crime import CrimeIncident, CrimeType, FIR
+from app.models.crime import CrimeIncident, FIR
 from app.models.analytics import CaseForecast, OffenderProfile, CrimeHotspot
 
 router = APIRouter()
@@ -184,8 +183,8 @@ async def _get_unsolved_heinous_alerts(db: AsyncSession) -> list:
         select(CrimeIncident, FIR)
         .join(FIR, CrimeIncident.fir_id == FIR.id)
         .where(
-            CrimeIncident.is_heinous == True,
-            CrimeIncident.is_solved == False,
+            CrimeIncident.is_heinous,
+            ~CrimeIncident.is_solved,
             CrimeIncident.incident_date >= cutoff.date(),
         )
         .order_by(CrimeIncident.incident_date.desc())

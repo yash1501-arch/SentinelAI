@@ -1,10 +1,10 @@
 import uuid
-from datetime import datetime, timezone, date
+from datetime import datetime, timezone
 from sqlalchemy import (
     Column, String, Boolean, DateTime, Date, Time, Text, Numeric,
-    Float, Integer, ForeignKey, Enum as SAEnum, LargeBinary,
+    Float, Integer, ForeignKey, Enum as SAEnum,
 )
-from sqlalchemy.dialects.postgresql import UUID, JSONB, ARRAY, INET
+from sqlalchemy.dialects.postgresql import UUID, JSONB, ARRAY
 from sqlalchemy.orm import relationship
 import enum
 

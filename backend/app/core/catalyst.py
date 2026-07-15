@@ -1,5 +1,4 @@
 # SentinelsAI - Zoho Catalyst SDK Helper
-import os
 from app.core.config import settings
 
 
@@ -18,7 +17,7 @@ def get_catalyst_app():
         return app
     except ImportError:
         return None
-    except Exception as e:
+    except Exception:
         return None
 
 

@@ -14,20 +14,20 @@ Graph Schema:
 Nodes: Person, Crime, Location, Vehicle, BankAccount, Phone, Organization, Gang, Weapon, Victim, Accused, Witness
 
 Relationships:
-- (p:Person)-[:PARTICIPATED_IN {role: "victim"|"accused"|"witness"}]->(c:Crime)
-- (p1:Person)-[:KNOWS {relationship_type: string, since: date}]->(p2:Person)
+- (p:Person)-[:PARTICIPATED_IN {{role: "victim"|"accused"|"witness"}}]->(c:Crime)
+- (p1:Person)-[:KNOWS {{relationship_type: string, since: date}}]->(p2:Person)
 - (p:Person)-[:OWNS]->(v:Vehicle)
 - (p:Person)-[:HAS_ACCOUNT]->(a:BankAccount)
-- (a1:BankAccount)-[:TRANSFERRED_TO {amount: float, date: datetime, is_suspicious: bool}]->(a2:BankAccount)
-- (p:Person)-[:MEMBER_OF_GANG {role: string}]->(g:Gang)
+- (a1:BankAccount)-[:TRANSFERRED_TO {{amount: float, date: datetime, is_suspicious: bool}}]->(a2:BankAccount)
+- (p:Person)-[:MEMBER_OF_GANG {{role: string}}]->(g:Gang)
 - (p:Person)-[:MEMBER_OF]->(o:Organization)
 - (c:Crime)-[:OCCURRED_AT]->(l:Location)
-- (c:Crime)-[:SIMILAR_TO {score: float}]->(c2:Crime)
+- (c:Crime)-[:SIMILAR_TO {{score: float}}]->(c2:Crime)
 - (g1:Gang)-[:RIVAL_OF]->(g2:Gang)
-- (p:Person)-[:FINANCIAL_LINK {total_amount: float}]->(p2:Person)
+- (p:Person)-[:FINANCIAL_LINK {{total_amount: float}}]->(p2:Person)
 
 Common Query Patterns:
-- Network: MATCH (p:Person {{id: $id}})-[:KNOWS|MEMBER_OF*1..{depth}]-(connected)
+- Network: MATCH (p:Person {{id: $id}})-[:KNOWS|MEMBER_OF*1..{{depth}}]-(connected)
 - Shortest path: MATCH path = shortestPath((p1)-[*..6]-(p2))
 - Money trail: MATCH path = (a:BankAccount)-[:TRANSFERRED_TO*3..6]->(b)
 - Community: CALL gds.louvain.stream('crime-graph')
@@ -56,14 +56,37 @@ class GraphAgent:
             )
 
             raw = response.choices[0].message.content.strip()
-            # Handle markdown-wrapped JSON
-            if raw.startswith("```"):
-                raw = raw.split("```")[1]
-                if raw.startswith("json"):
-                    raw = raw[4:]
-                raw = raw.strip()
-
-            result = json.loads(raw)
+            try:
+                import re
+                match = re.search(r"(\{.*\})", raw, re.DOTALL)
+                raw_json = match.group(1) if match else raw
+                cleaned = []
+                in_string = False
+                escape = False
+                for char in raw_json:
+                    if char == '"' and not escape:
+                        in_string = not in_string
+                        cleaned.append(char)
+                    elif char == '\\' and in_string and not escape:
+                        escape = True
+                        cleaned.append(char)
+                    else:
+                        if char == '\n' and in_string:
+                            cleaned.append('\\n')
+                        elif char == '\r' and in_string:
+                            cleaned.append('\\r')
+                        else:
+                            cleaned.append(char)
+                        escape = False
+                result = json.loads("".join(cleaned))
+            except Exception as e:
+                import traceback
+                traceback.print_exc()
+                result = {
+                    "cypher": "",
+                    "explanation": f"Could not parse Cypher agent response: {str(e)}",
+                    "params": {}
+                }
             cypher = result.get("cypher", "").strip()
             params = result.get("params", {})
             state["cypher_query"] = cypher

@@ -2,9 +2,7 @@
 Middleware for SentinelAI: Rate Limiting + Audit Logging.
 """
 import time
-import uuid
 from collections import defaultdict
-from datetime import datetime, timezone
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 from starlette.responses import Response, JSONResponse

@@ -1,0 +1,26 @@
+2026-07-15 07:34:15.421 | ERROR    | app.core.database:get_db:52 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-07-15 07:34:15.475 | ERROR    | app.core.database:get_db:52 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-07-15 07:34:21.742 | ERROR    | app.core.database:get_db:52 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-07-15 07:34:21.742 | ERROR    | app.core.database:get_db:52 - Database session error: [WinError 1225] The remote computer refused the network connection
+2026-07-15 07:37:28.580 | ERROR    | app.core.database:get_db:52 - Database session error: 1 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 'roles'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <User test_officer (test@test.gov.in)>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+2026-07-15 07:37:29.552 | ERROR    | app.core.database:get_db:52 - Database session error: Event loop is closed
+2026-07-15 07:37:32.726 | ERROR    | app.core.database:get_db:52 - Database session error: 409: User with this email or username already exists
+2026-07-15 07:37:33.606 | ERROR    | app.core.database:get_db:52 - Database session error: Event loop is closed
+2026-07-15 07:40:31.593 | ERROR    | app.core.database:get_db:52 - Database session error: 409: User with this email or username already exists
+2026-07-15 07:40:32.575 | ERROR    | app.core.database:get_db:52 - Database session error: Event loop is closed
+2026-07-15 07:40:37.254 | ERROR    | app.core.database:get_db:52 - Database session error: 409: User with this email or username already exists
+2026-07-15 07:40:38.143 | ERROR    | app.core.database:get_db:52 - Database session error: Event loop is closed
+2026-07-15 07:41:17.500 | ERROR    | app.core.database:get_db:52 - Database session error: 409: User with this email or username already exists
+2026-07-15 07:41:18.806 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-07-15 07:41:29.241 | ERROR    | app.core.database:get_db:52 - Database session error: 409: User with this email or username already exists
+2026-07-15 07:41:30.430 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-07-15 07:42:35.425 | ERROR    | app.core.database:get_db:52 - Database session error: 409: User with this email or username already exists
+2026-07-15 07:42:36.642 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-07-15 07:42:37.739 | ERROR    | app.core.database:get_db:52 - Database session error: 409: User with this email or username already exists
+2026-07-15 07:42:38.954 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-07-15 07:45:31.021 | ERROR    | app.core.database:get_db:52 - Database session error: 409: User with this email or username already exists
+2026-07-15 07:45:32.241 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials
+2026-07-15 07:56:08.140 | ERROR    | app.core.database:get_db:52 - Database session error: 409: User with this email or username already exists
+2026-07-15 07:56:09.477 | ERROR    | app.core.database:get_db:52 - Database session error: 401: Invalid credentials

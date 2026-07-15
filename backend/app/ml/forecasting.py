@@ -3,7 +3,6 @@ Crime forecasting ML integration using Prophet.
 
 Wraps the ml-services/forecasting module for use within the FastAPI backend.
 """
-import os
 import sys
 import json
 import asyncio

@@ -1,6 +1,5 @@
 import pytest
 from unittest.mock import AsyncMock, patch, MagicMock
-from uuid import uuid4
 
 
 pytestmark = pytest.mark.asyncio

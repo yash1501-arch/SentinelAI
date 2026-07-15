@@ -1,3 +1,4 @@
+# ruff: noqa: F401
 from app.models.user import User, Role, Permission
 from app.models.crime import (
     FIR, CrimeIncident, CrimeType, Victim, Accused, Offender, Witness,

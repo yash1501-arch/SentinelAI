@@ -53,6 +53,6 @@ async def create_additional_indexes(db: AsyncSession):
     for index_sql in ADDITIONAL_INDEXES:
         try:
             await db.execute(text(index_sql))
-        except Exception as e:
+        except Exception:
             pass
     await db.commit()

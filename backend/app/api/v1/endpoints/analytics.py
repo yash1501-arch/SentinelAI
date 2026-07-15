@@ -1,8 +1,6 @@
-import uuid
 from datetime import datetime, timezone, timedelta, date
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy import select, func, case
-from sqlalchemy.orm import joinedload
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.database import get_db
 from app.core.dependencies import get_current_user
@@ -13,6 +11,7 @@ from app.schemas.analytics import (
     ForecastRequest, ForecastResponse, ForecastDataPoint,
     CrimeHotspotRead,
 )
+from app.ml.sociological import analyze_sociological
 
 router = APIRouter()
 
@@ -153,10 +152,9 @@ async def get_sociological_insights(
     result = await db.execute(stmt)
     indicators = result.scalars().all()
 
-    if not indicators:
-        return []
+    ml_analysis = await analyze_sociological() if indicators else {}
 
-    return [
+    data = [
         {
             "district": ind.district,
             "unemployment_rate": float(ind.unemployment_rate) if ind.unemployment_rate else 0,
@@ -170,6 +168,11 @@ async def get_sociological_insights(
         }
         for ind in indicators
     ]
+
+    return {
+        "indicators": data,
+        "ml_analysis": ml_analysis,
+    }
 
 
 @router.get("/statistics")
@@ -191,8 +194,8 @@ async def get_crime_statistics(
 
     count_stmt = select(
         func.count(CrimeIncident.id).label("total"),
-        func.sum(case((CrimeIncident.is_solved == True, 1), else_=0)).label("solved"),
-        func.sum(case((CrimeIncident.is_heinous == True, 1), else_=0)).label("heinous"),
+        func.sum(case((CrimeIncident.is_solved.is_(True), 1), else_=0)).label("solved"),
+        func.sum(case((CrimeIncident.is_heinous.is_(True), 1), else_=0)).label("heinous"),
         func.coalesce(func.avg(CrimeIncident.property_value_loss), 0).label("avg_loss"),
         func.coalesce(func.sum(CrimeIncident.injury_count), 0).label("total_injuries"),
         func.coalesce(func.sum(CrimeIncident.fatality_count), 0).label("total_fatalities"),
@@ -262,12 +265,12 @@ async def get_financial_analysis(
     db: AsyncSession = Depends(get_db),
 ):
     """Financial crime detection — suspicious transactions and anomalies."""
-    from app.models.crime import Transaction, BankAccount
+    from app.models.crime import Transaction
 
     # Get suspicious transactions
     suspicious_stmt = (
         select(Transaction)
-        .where(Transaction.is_suspicious == True)
+        .where(Transaction.is_suspicious.is_(True))
         .order_by(Transaction.amount.desc())
         .limit(20)
     )
@@ -287,7 +290,7 @@ async def get_financial_analysis(
     # Summary stats
     stats_stmt = select(
         func.count(Transaction.id).label("total"),
-        func.sum(case((Transaction.is_suspicious == True, 1), else_=0)).label("suspicious_count"),
+        func.sum(case((Transaction.is_suspicious.is_(True), 1), else_=0)).label("suspicious_count"),
         func.coalesce(func.sum(Transaction.amount), 0).label("total_volume"),
     )
     stats_result = await db.execute(stats_stmt)

@@ -83,7 +83,7 @@ async def service_status(
     try:
         from app.services.openai_client import create_openai_client
         client = create_openai_client()
-        response = await client.chat.completions.create(
+        await client.chat.completions.create(
             model=settings.OPENAI_MODEL,
             messages=[{"role": "user", "content": "ping"}],
             max_tokens=5,

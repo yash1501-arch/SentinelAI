@@ -2,7 +2,6 @@ from qdrant_client import AsyncQdrantClient
 from qdrant_client.http.models import (
     Distance, VectorParams, PointStruct,
     Filter, FieldCondition, MatchValue,
-    CollectionStatus,
 )
 from app.core.config import settings
 from loguru import logger
@@ -80,9 +79,9 @@ class QdrantService:
                 )
             search_filter = Filter(must=conditions)
 
-        results = await client.search(
+        results = await client.query_points(
             collection_name=collection,
-            query_vector=query_vector,
+            query=query_vector,
             limit=top_k,
             score_threshold=score_threshold,
             query_filter=search_filter,
@@ -93,7 +92,7 @@ class QdrantService:
                 "score": r.score,
                 "payload": r.payload,
             }
-            for r in results
+            for r in results.points
         ]
 
     @classmethod

@@ -5,3 +5,12 @@
 2026-07-02 10:00:03.542 | INFO     | app.main:lifespan:38 - Neo4j connection established
 2026-07-02 10:00:03.542 | WARNING  | app.services.redis_service:get_client:30 - redis package not installed, caching disabled
 2026-07-02 10:00:03.543 | INFO     | app.main:lifespan:46 - Redis connection established
+2026-07-02 12:40:17.548 | INFO     | app.services.neo4j_service:close:24 - Neo4j driver closed
+2026-07-02 12:40:17.576 | INFO     | app.main:lifespan:63 - Shutting down SentinelAI
+2026-07-02 12:41:29.162 | INFO     | app.main:lifespan:17 - Starting SentinelAI
+2026-07-02 12:41:35.032 | INFO     | app.core.database:init_db:62 - Database tables created successfully
+2026-07-02 12:41:39.885 | INFO     | app.main:lifespan:31 - Qdrant collections initialized
+2026-07-02 12:41:39.885 | INFO     | app.services.neo4j_service:get_driver:16 - Neo4j driver initialized
+2026-07-02 12:41:39.886 | INFO     | app.main:lifespan:38 - Neo4j connection established
+2026-07-02 12:41:39.886 | WARNING  | app.services.redis_service:get_client:30 - redis package not installed, caching disabled
+2026-07-02 12:41:39.886 | INFO     | app.main:lifespan:46 - Redis connection established

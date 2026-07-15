@@ -1,7 +1,6 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.config import settings
 from app.core.logging import setup_logging
 from app.core.database import init_db, async_session_factory
@@ -9,6 +8,7 @@ from app.db.seed import seed_database
 from app.api.v1.endpoints import auth, chat, cases, analytics, network, export, admin, voice
 from app.api.v1.endpoints import catalyst_func
 from app.api.v1.endpoints import alerts as alerts_router
+from app.core.middleware import RateLimitMiddleware, AuditLogMiddleware
 logger = setup_logging()
 
 
@@ -34,7 +34,7 @@ async def lifespan(app: FastAPI):
 
     try:
         from app.services.neo4j_service import Neo4jService
-        driver = await Neo4jService.get_driver()
+        await Neo4jService.get_driver()
         logger.info("Neo4j connection established")
     except Exception as e:
         logger.warning(f"Neo4j initialization skipped: {e}")
@@ -74,7 +74,6 @@ app = FastAPI(
 
 
 # Custom middleware (these run AFTER CORS in request flow)
-from app.core.middleware import RateLimitMiddleware, AuditLogMiddleware
 app.add_middleware(AuditLogMiddleware)
 app.add_middleware(RateLimitMiddleware, requests_per_minute=100)
 

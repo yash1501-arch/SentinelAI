@@ -1,12 +1,15 @@
 """
 Translation service for SentinelAI.
 
-Provides Kannada ↔ English translation using LLM-based translation
-with fallback. IndicTrans2 would be the ideal production solution
-for offline/high-throughput, but LLM translation works well for
-interactive conversational use.
+Provides Kannada ↔ English translation using a cascading approach:
+1. IndicTrans2 (offline, high-quality) — ideal for production
+2. LLM-based translation (OpenAI/Groq) — fallback for interactive use
+3. Direct passthrough — last resort
+
+IndicTrans2 can be installed via:
+  pip install ai4bharat-transliteration[all] ai4bharat-indic-trans
+  python -c "from indic_trans import IndicTrans; IndicTrans.download_model('kn-en')"
 """
-from typing import Optional
 from loguru import logger
 
 from app.core.config import settings
@@ -33,9 +36,25 @@ LANGUAGE_NAMES = {
     "mr": "Marathi",
 }
 
+_indic_trans_model = None
+
+
+def _load_indic_trans2():
+    global _indic_trans_model
+    if _indic_trans_model is not None:
+        return _indic_trans_model
+    try:
+        from indic_trans import IndicTrans
+        _indic_trans_model = IndicTrans.load_model("kn-en")
+        logger.info("IndicTrans2 model loaded successfully")
+        return _indic_trans_model
+    except Exception as e:
+        logger.debug(f"IndicTrans2 not available: {e}")
+        return None
+
 
 class TranslationService:
-    """LLM-based translation service for multilingual support."""
+    """Multi-engine translation service with IndicTrans2 + LLM fallback."""
 
     _client = None
 
@@ -53,6 +72,18 @@ class TranslationService:
 
         lang_name = LANGUAGE_NAMES.get(source_lang, source_lang)
 
+        model = _load_indic_trans2()
+        if model is not None:
+            try:
+                import asyncio
+                result = await asyncio.to_thread(model.translate, text, src_lang=source_lang, tgt_lang="en")
+                if result and len(result) > 0:
+                    translated = result[0] if isinstance(result, (list, tuple)) else str(result)
+                    logger.debug(f"IndicTrans2 {source_lang}→en: '{text[:50]}' → '{translated[:50]}'")
+                    return translated.strip()
+            except Exception as e:
+                logger.warning(f"IndicTrans2 translation failed, falling back to LLM: {e}")
+
         try:
             client = cls._get_client()
             response = await client.chat.completions.create(
@@ -66,11 +97,11 @@ class TranslationService:
                 max_tokens=500,
             )
             translated = response.choices[0].message.content.strip()
-            logger.debug(f"Translated {source_lang}→en: '{text[:50]}' → '{translated[:50]}'")
+            logger.debug(f"LLM {source_lang}→en: '{text[:50]}' → '{translated[:50]}'")
             return translated
         except Exception as e:
             logger.error(f"Translation to English failed: {e}")
-            return text  # Return original if translation fails
+            return text
 
     @classmethod
     async def translate_from_english(cls, text: str, target_lang: str) -> str:
@@ -79,6 +110,18 @@ class TranslationService:
             return text
 
         lang_name = LANGUAGE_NAMES.get(target_lang, target_lang)
+
+        model = _load_indic_trans2()
+        if model is not None:
+            try:
+                import asyncio
+                result = await asyncio.to_thread(model.translate, text, src_lang="en", tgt_lang=target_lang)
+                if result and len(result) > 0:
+                    translated = result[0] if isinstance(result, (list, tuple)) else str(result)
+                    logger.debug(f"IndicTrans2 en→{target_lang}: '{text[:50]}' → '{translated[:50]}'")
+                    return translated.strip()
+            except Exception as e:
+                logger.warning(f"IndicTrans2 translation failed, falling back to LLM: {e}")
 
         try:
             client = cls._get_client()
@@ -93,16 +136,15 @@ class TranslationService:
                 max_tokens=1500,
             )
             translated = response.choices[0].message.content.strip()
-            logger.debug(f"Translated en→{target_lang}: '{text[:50]}' → '{translated[:50]}'")
+            logger.debug(f"LLM en→{target_lang}: '{text[:50]}' → '{translated[:50]}'")
             return translated
         except Exception as e:
             logger.error(f"Translation from English failed: {e}")
-            return text  # Return English if translation fails
+            return text
 
     @classmethod
     async def detect_language(cls, text: str) -> str:
         """Detect the language of input text."""
-        # Simple heuristic: check for Kannada Unicode range (U+0C80-U+0CFF)
         kannada_chars = sum(1 for c in text if '\u0C80' <= c <= '\u0CFF')
         hindi_chars = sum(1 for c in text if '\u0900' <= c <= '\u097F')
         tamil_chars = sum(1 for c in text if '\u0B80' <= c <= '\u0BFF')

@@ -7,9 +7,11 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.database import get_db
 from app.core.dependencies import get_current_user
 from app.models.user import User
-from app.models.crime import Person, Accused, Victim, Gang, CrimeIncident, FIR
+from app.models.crime import Person, Accused, Victim, Gang
 from app.models.associations import gang_members
 from app.schemas.analytics import NetworkQuery, NetworkResponse, NetworkNode, NetworkEdge
+from app.ml.network import compute_centrality as ml_centrality, detect_communities_ml
+from app.services.neo4j_service import Neo4jService
 
 router = APIRouter()
 
@@ -29,8 +31,8 @@ async def analyze_network(
     else:
         nodes, edges = await _build_global_network(db, depth)
 
-    centrality = _compute_centrality(nodes, edges)
-    communities = _detect_communities(edges, nodes)
+    centrality = await ml_centrality(nodes, edges) or _compute_centrality(nodes, edges)
+    communities = await detect_communities_ml(nodes, edges) or _detect_communities(edges, nodes)
 
     return NetworkResponse(
         nodes=nodes, edges=edges,
@@ -262,11 +264,50 @@ async def detect_suspicious_patterns(
         for r in high_degree
     ]
 
+    neo4j_cycles = []
+    try:
+        neo4j_cycles = await Neo4jService.detect_circular_transactions()
+    except Exception:
+        pass
+
     return {
         "isolated_persons": {"count": isolated_count},
         "high_degree_persons": high_degree_persons,
-        "suspicious_communities": [],
+        "suspicious_communities": neo4j_cycles,
     }
+
+
+@router.get("/money-trail/{person_id}")
+async def get_money_trail(
+    person_id: uuid.UUID,
+    max_depth: int = Query(5, ge=1, le=10),
+    current_user: User = Depends(get_current_user),
+):
+    try:
+        results = await Neo4jService.detect_money_trails(str(person_id), max_depth)
+        if not results:
+            return {"person_id": str(person_id), "trails": [], "message": "No money trails found"}
+        return {
+            "person_id": str(person_id),
+            "trails": results,
+        }
+    except Exception as e:
+        return {"person_id": str(person_id), "trails": [], "message": f"Neo4j unavailable: {str(e)}"}
+
+
+@router.get("/circular-transactions")
+async def detect_circular_transactions(
+    min_cycle: int = Query(3, ge=3, le=4),
+    current_user: User = Depends(get_current_user),
+):
+    try:
+        results = await Neo4jService.detect_circular_transactions(min_cycle, max_cycle_length=8)
+        return {
+            "circular_transactions": results,
+            "total_cycles_found": len(results),
+        }
+    except Exception as e:
+        return {"circular_transactions": [], "total_cycles_found": 0, "error": str(e)}
 
 
 async def _build_ego_network(db: AsyncSession, person_id: uuid.UUID, depth: int) -> tuple[list, list]:

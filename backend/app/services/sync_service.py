@@ -4,12 +4,9 @@ Data synchronization service for SentinelAI.
 Handles syncing PostgreSQL data to Neo4j and Qdrant on a scheduled basis.
 Can be triggered via Catalyst Scheduler or manually via admin endpoint.
 """
-import asyncio
-from datetime import datetime, timezone, timedelta
-from typing import Optional
+from datetime import datetime, timezone
 from loguru import logger
 
-from app.core.config import settings
 from app.core.database import async_session_factory
 from sqlalchemy import text
 

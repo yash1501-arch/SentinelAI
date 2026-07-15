@@ -1,7 +1,6 @@
 """Synthetic crime time-series data generator."""
 import pandas as pd
 import numpy as np
-from datetime import datetime, timedelta
 
 
 def generate_daily_crime_data(

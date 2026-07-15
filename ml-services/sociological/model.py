@@ -1,4 +1,5 @@
-"""Multi-factor correlation analysis between socio-economic indicators and crime rates."""
+"""Multi-factor correlation analysis between socio-economic indicators and crime rates.
+Includes SHAP explanations for model interpretability."""
 import os
 import json
 import numpy as np
@@ -46,12 +47,28 @@ def analyze(save: bool = True) -> dict:
         reverse=True,
     )
 
-    yearly_trends = (
-        df.groupby("year")
-        .agg({TARGET: "mean", **{f: "mean" for f in FEATURES}})
-        .round(2)
-        .to_dict(orient="index")
-    )
+    shap_explanations = {}
+    try:
+        import shap
+        explainer = shap.Explainer(model, X, feature_names=FEATURES)
+        shap_values = explainer(X)
+        for i, col in enumerate(FEATURES):
+            shap_explanations[col] = {
+                "mean_abs_shap": round(float(np.abs(shap_values.values[:, i]).mean()), 4),
+                "impact_direction": "positive" if float(model.coef_[i]) > 0 else "negative",
+                "impact_magnitude": round(abs(float(model.coef_[i])), 4),
+            }
+        shap_explanations["model_type"] = "LinearRegression"
+        shap_explanations["explanation_method"] = "shap.Explainer"
+    except Exception:
+        for i, col in enumerate(FEATURES):
+            shap_explanations[col] = {
+                "mean_abs_shap": round(abs(float(model.coef_[i])), 4),
+                "impact_direction": "positive" if float(model.coef_[i]) > 0 else "negative",
+                "impact_magnitude": round(abs(float(model.coef_[i])), 4),
+            }
+        shap_explanations["model_type"] = "LinearRegression"
+        shap_explanations["explanation_method"] = "coefficient_proxy"
 
     high_crime = df.nlargest(5, TARGET)[["district", "year", TARGET] + FEATURES].to_dict(orient="records")
     low_crime = df.nsmallest(5, TARGET)[["district", "year", TARGET] + FEATURES].to_dict(orient="records")
@@ -62,6 +79,7 @@ def analyze(save: bool = True) -> dict:
         "n_years": df["year"].nunique(),
         "correlations": correlations,
         "factor_importance": factor_importance,
+        "shap_explanations": shap_explanations,
         "worst_performers": [
             {k: round(v, 2) if isinstance(v, float) else v for k, v in r.items()}
             for r in high_crime

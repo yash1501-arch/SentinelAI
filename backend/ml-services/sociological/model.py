@@ -1,7 +1,6 @@
 """Multi-factor correlation analysis between socio-economic indicators and crime rates."""
 import os
 import json
-import numpy as np
 import pandas as pd
 from scipy import stats
 from sklearn.linear_model import LinearRegression
@@ -46,7 +45,7 @@ def analyze(save: bool = True) -> dict:
         reverse=True,
     )
 
-    yearly_trends = (
+    (
         df.groupby("year")
         .agg({TARGET: "mean", **{f: "mean" for f in FEATURES}})
         .round(2)

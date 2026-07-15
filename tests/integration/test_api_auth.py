@@ -1,12 +1,14 @@
 import pytest
+import pytest_asyncio
 from httpx import AsyncClient, ASGITransport
 from app.main import app
 
 
-@pytest.fixture
-def client():
+@pytest_asyncio.fixture
+async def client():
     transport = ASGITransport(app=app)
-    return AsyncClient(transport=transport, base_url="http://test")
+    async with AsyncClient(transport=transport, base_url="http://test") as ac:
+        yield ac
 
 
 @pytest.mark.asyncio
@@ -17,7 +19,6 @@ async def test_health_endpoint(client):
     assert data["status"] == "healthy"
 
 
-@pytest.mark.skip(reason="requires PostgreSQL connection")
 @pytest.mark.asyncio
 async def test_register_user(client):
     response = await client.post(
@@ -34,7 +35,6 @@ async def test_register_user(client):
     assert response.status_code in (201, 409)
 
 
-@pytest.mark.skip(reason="requires PostgreSQL connection")
 @pytest.mark.asyncio
 async def test_login_invalid(client):
     response = await client.post(

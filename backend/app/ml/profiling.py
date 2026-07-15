@@ -3,11 +3,9 @@ Offender profiling ML integration using XGBoost + SHAP.
 
 Wraps the ml-services/profiling module for use within the FastAPI backend.
 """
-import os
 import sys
 import json
 import asyncio
-from typing import Optional
 from pathlib import Path
 from loguru import logger
 

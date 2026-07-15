@@ -56,14 +56,37 @@ class SQLAgent:
             )
 
             raw = response.choices[0].message.content.strip()
-            # Handle markdown-wrapped JSON (```json ... ```)
-            if raw.startswith("```"):
-                raw = raw.split("```")[1]
-                if raw.startswith("json"):
-                    raw = raw[4:]
-                raw = raw.strip()
-
-            result = json.loads(raw)
+            try:
+                import re
+                match = re.search(r"(\{.*\})", raw, re.DOTALL)
+                raw_json = match.group(1) if match else raw
+                cleaned = []
+                in_string = False
+                escape = False
+                for char in raw_json:
+                    if char == '"' and not escape:
+                        in_string = not in_string
+                        cleaned.append(char)
+                    elif char == '\\' and in_string and not escape:
+                        escape = True
+                        cleaned.append(char)
+                    else:
+                        if char == '\n' and in_string:
+                            cleaned.append('\\n')
+                        elif char == '\r' and in_string:
+                            cleaned.append('\\r')
+                        else:
+                            cleaned.append(char)
+                        escape = False
+                result = json.loads("".join(cleaned))
+            except Exception as e:
+                import traceback
+                traceback.print_exc()
+                result = {
+                    "sql": "",
+                    "explanation": f"Could not parse SQL agent response: {str(e)}",
+                    "tables_used": []
+                }
             sql_query = result.get("sql", "").strip()
             state["sql_query"] = sql_query
             state["reasoning_chain"].append(f"SQL Agent generated: {result.get('explanation', '')}")

@@ -120,3 +120,42 @@ class Neo4jService:
             "min_chain_length": min_chain_length,
         })
         return results
+
+    @classmethod
+    async def detect_circular_transactions(cls, min_cycle_length: int = 3, max_cycle_length: int = 8):
+        query = """
+        MATCH path = (start:BankAccount)-[:TRANSFERRED_TO*$min_cycle_length..$max_cycle_length]->(start)
+        WITH path, relationships(path) as rels
+        WHERE ALL(r in rels WHERE r.is_suspicious = true OR r.amount > 50000)
+        RETURN [node in nodes(path) | node.account_number] as account_cycle,
+               [r in rels | r.amount] as amounts,
+               length(path) as cycle_length,
+               reduce(s = 0, r in rels | s + r.amount) as total_cycled_amount
+        ORDER BY total_cycled_amount DESC
+        LIMIT 20
+        """
+        results = await cls.run_query(query, {
+            "min_cycle_length": min_cycle_length,
+            "max_cycle_length": max_cycle_length,
+        })
+        return results
+
+    @classmethod
+    async def detect_money_trails(cls, person_id: str, max_depth: int = 5):
+        query = """
+        MATCH (p:Person {id: $person_id})-[:HAS_ACCOUNT]->(acc:BankAccount)
+        MATCH trail = (acc)-[:TRANSFERRED_TO*1..$max_depth]->(dest:BankAccount)
+        WHERE NOT (dest)<-[:HAS_ACCOUNT]-(p)
+        RETURN [node in nodes(trail) | node.account_number] as path,
+               [r in relationships(trail) | r.amount] as amounts,
+               [r in relationships(trail) | r.date] as dates,
+               length(trail) as hop_count,
+               reduce(s = 0, r in relationships(trail) | s + r.amount) as total_amount
+        ORDER BY total_amount DESC
+        LIMIT 10
+        """
+        results = await cls.run_query(query, {
+            "person_id": person_id,
+            "max_depth": max_depth,
+        })
+        return results

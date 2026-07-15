@@ -5,7 +5,7 @@ Populates master tables and creates sample CaseMaster records
 that align with the official CrimeNo format.
 """
 import random
-from datetime import datetime, timezone, timedelta, date
+from datetime import datetime, date
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -15,8 +15,7 @@ from app.models.official_schema import (
     CasteMaster, CaseCategoryMaster, GravityOffenceMaster, CaseStatusMaster,
     ActMaster, SectionMaster, CrimeHeadMaster, CrimeSubHeadMaster,
     CourtMaster, EmployeeMaster, CaseMaster, ComplainantDetails,
-    VictimOfficial, AccusedOfficial, ArrestSurrender, ActSectionAssociation,
-    ChargesheetDetails,
+    VictimOfficial, AccusedOfficial, ActSectionAssociation,
 )
 
 random.seed(42)

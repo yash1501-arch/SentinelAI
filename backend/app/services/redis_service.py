@@ -6,7 +6,6 @@ and forecast result caching.
 """
 import json
 from typing import Optional, List, Dict, Any
-from datetime import timedelta
 from loguru import logger
 
 try:

@@ -23,7 +23,7 @@ def build_index(save: bool = True) -> dict:
     encoder = SentenceTransformer(EMBEDDING_MODEL)
     embeddings = encoder.encode(texts, show_progress_bar=True, normalize_embeddings=True)
 
-    index = {
+    {
         "case_ids": case_ids,
         "crime_types": df["crime_type"].tolist(),
         "descriptions": texts,
@@ -32,7 +32,7 @@ def build_index(save: bool = True) -> dict:
 
     if save:
         os.makedirs(MODELS_DIR, exist_ok=True)
-        joblib.dump(encoder, os.path.join(MODELS_DIR, "encoder.pkl"))
+        joblib.dump({"model_name": EMBEDDING_MODEL}, os.path.join(MODELS_DIR, "encoder.pkl"))
         np.save(os.path.join(MODELS_DIR, "embeddings.npy"), embeddings)
         pd.DataFrame({"case_id": case_ids, "crime_type": df["crime_type"], "description": texts}).to_csv(
             os.path.join(MODELS_DIR, "cases.csv"), index=False
@@ -41,7 +41,7 @@ def build_index(save: bool = True) -> dict:
 
     sim_matrix = cosine_similarity(embeddings)
     n_total = len(case_ids)
-    n_pairs = (n_total * (n_total - 1)) // 2
+    (n_total * (n_total - 1)) // 2
 
     return {
         "n_cases": n_total,
@@ -53,7 +53,13 @@ def build_index(save: bool = True) -> dict:
 
 
 def search(query: str, top_k: int = 5) -> list:
-    encoder = joblib.load(os.path.join(MODELS_DIR, "encoder.pkl"))
+    try:
+        metadata = joblib.load(os.path.join(MODELS_DIR, "encoder.pkl"))
+        model_name = metadata.get("model_name", EMBEDDING_MODEL) if isinstance(metadata, dict) else EMBEDDING_MODEL
+    except Exception:
+        model_name = EMBEDDING_MODEL
+
+    encoder = SentenceTransformer(model_name)
     embeddings = np.load(os.path.join(MODELS_DIR, "embeddings.npy"))
     cases = pd.read_csv(os.path.join(MODELS_DIR, "cases.csv"))
 

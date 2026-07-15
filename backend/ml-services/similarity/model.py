@@ -23,7 +23,7 @@ def build_index(save: bool = True) -> dict:
     encoder = SentenceTransformer(EMBEDDING_MODEL)
     embeddings = encoder.encode(texts, show_progress_bar=True, normalize_embeddings=True)
 
-    index = {
+    {
         "case_ids": case_ids,
         "crime_types": df["crime_type"].tolist(),
         "descriptions": texts,
@@ -41,7 +41,7 @@ def build_index(save: bool = True) -> dict:
 
     sim_matrix = cosine_similarity(embeddings)
     n_total = len(case_ids)
-    n_pairs = (n_total * (n_total - 1)) // 2
+    (n_total * (n_total - 1)) // 2
 
     return {
         "n_cases": n_total,

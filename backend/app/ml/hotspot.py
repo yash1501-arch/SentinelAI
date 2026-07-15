@@ -4,7 +4,6 @@ Crime hotspot detection using DBSCAN clustering.
 Wraps the ml-services/hotspot module for use within the FastAPI backend.
 """
 import sys
-import json
 import asyncio
 from pathlib import Path
 from loguru import logger

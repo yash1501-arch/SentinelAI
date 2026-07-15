@@ -2,8 +2,6 @@
 import os
 import json
 import networkx as nx
-import numpy as np
-from collections import Counter
 
 from .data import generate_criminal_network
 
@@ -15,8 +13,8 @@ def analyze(save: bool = True) -> dict:
     G = generate_criminal_network(100, 5)
 
     degree_cent = nx.degree_centrality(G)
-    betweenness_cent = nx.betweenness_centrality(G)
-    eigenvector_cent = nx.eigenvector_centrality(G, max_iter=1000)
+    nx.betweenness_centrality(G)
+    nx.eigenvector_centrality(G, max_iter=1000)
 
     persons = [n for n in G.nodes if G.nodes[n].get("type") == "person"]
     gangs = [n for n in G.nodes if G.nodes[n].get("type") == "gang"]
